@@ -1,4 +1,6 @@
-
+.footer.on{
+    display: none;
+}
 .container{
     max-width: 1170px;
     background-color:rgb(255, 255, 255);
