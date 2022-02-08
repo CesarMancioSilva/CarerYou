@@ -41,7 +41,8 @@ nav{
     width:85%;
     top:0;
     right:0;
-    position:absolute; 
+    position:absolute;
+    z-index: -10; 
  }
  .cadastro{
     height:calc(90% - 95px);
@@ -51,7 +52,7 @@ nav{
     background:;
     position:absolute;
     display: flex; 
-    top:2b0%;
+    top:20%;
  }
  .column-passos{
      height: 100%;
@@ -84,7 +85,11 @@ nav{
  .cadastro-form-div{
      width:100%;
      height:100%;
-     background:;
+     
+     padding-top: 3%;
+ }
+ .input-side{
+     display: block;
  }
  .cadastro-form-div .input-side .titulo{
     width:100%;
@@ -111,6 +116,7 @@ nav{
      justify-content: space-between;
     
 }
+
 .cadastro-nav button{
     width:150px;
     height: 50px;
@@ -199,4 +205,33 @@ nav{
     width: 100%;
     padding-left:0px ; 
     }
+    .column-passos{
+        display: none;
+    }
+    .cadastro{
+       
+        width:80%;
+        left:10%;
+        right:16%;
+        
+     }
+     .pngLeft{
+        display: none;
+      
+     }
+     .pngRight{
+        display: none;
+      }
+    
+}
+@media(max-width:610px){
+    .cadastro-form-div .cadastro-nav .cadastrar{
+        margin-top: 15px;
+       
+    }  
+    .cadastro-form-div .cadastro-nav{
+        display: block;
+       
+   }
+
 }
