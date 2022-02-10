@@ -82,6 +82,12 @@ nav{
      width: 6px;
      background:  #b9b9b9;
 }
+.column-passos2{
+    width: 100%;
+    height:50px;
+    background:red;
+    display: none;
+} 
  .cadastro-form-div{
      width:100%;
      height:100%;
@@ -111,7 +117,7 @@ nav{
  .cadastro-form-div .cadastro-nav{
      width:100%;
      background:;
-     padding-top: 50px;
+     padding-top: 20px;
      display: flex;
      justify-content: space-between;
     
@@ -147,9 +153,16 @@ nav{
 }
 .input-side .input-div input{
     width: 100%;
-    height: 60px;
+    height: 0px;
     margin-top: 30px;
-    padding: 25px;
+    padding: 20px;
+    border:2px solid rgb(175, 175, 175);
+}
+.input-side .input-div select{
+    width: 100%;
+    height: 0px;
+    margin-top: 30px;
+    padding: 20px;
     border:2px solid rgb(175, 175, 175);
 }
 .parte1 .nome{
@@ -208,8 +221,35 @@ nav{
     .column-passos{
         display: none;
     }
+    .column-passos2{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        background: none;
+    } 
+    .column-passos2 .caixa2{
+        width:200px;
+        height: 60px;
+        background: #3DC9C4;
+        color: white;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #3DC9C4;
+        border-radius: 6px;
+    
+    } 
+    .column-passos2 .linha2{
+        width:80%;
+        height: 8px;
+        background:  #b9b9b9;
+    
+    } 
     .cadastro{
-       
+       top:12%;
         width:80%;
         left:10%;
         right:16%;
@@ -222,6 +262,14 @@ nav{
      .pngRight{
         display: none;
       }
+      .quebra-direitapp{
+        display:flex;
+        justify-content: space-between;
+    }
+
+    .parte1 .quebra-direitapp .quebraInput{
+        width:47%;
+    }
     
 }
 @media(max-width:610px){
@@ -234,4 +282,60 @@ nav{
        
    }
 
+}
+@media(max-width:400px){
+    h1{
+        font-size:150%;
+    }
+    .subtitulo{
+        font-size:90%;
+    }
+    .cadastro-nav{
+        margin-top:0;
+    }
+    .cadastro-nav button{
+        width:120px;
+        height: 40px;
+        
+        font-size: 16px;
+    }
+    .cadastro-nav .NextBackdiv button{
+        width:120px;
+        height: 40px;
+        
+        font-size: 14px;
+    }
+    .cadastro-nav .NextBackdiv button:not(:first-child){
+        font-size: 16px;
+    }
+    .input-side .input-div{
+        width:100%;
+    }
+    .input-side .input-div input{
+        width: 100%;
+        height: 10px;
+        margin-top: 10px;
+        border:2px solid rgb(175, 175, 175);
+    }
+    .column-passos2{
+        margin-top: 13px;
+        margin-bottom: 3px;
+       
+    } 
+    .column-passos2 .caixa2{
+        width:180px;
+        height: 45px;
+        background: #3DC9C4;
+        color: white;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #3DC9C4;
+        border-radius: 6px;
+    
+    } 
+
+
+    
 }
