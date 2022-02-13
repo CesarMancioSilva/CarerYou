@@ -18,7 +18,7 @@
                 <div onclick="formf()" class="hamburger"></div>
             </label>
             
-            <a  href="home.html"><img id="logo-monitor"src="assets/img/logo.png"></a>
+            <a  href="home.php"><img id="logo-monitor"src="assets/img/logo.png"></a>
             <ul>
                 
                 <li href="#"><a href="#">ASILOS/CASAS DE REPOUSO</a></li>
@@ -33,9 +33,9 @@
               
             </ul> 
             
-            <img id="icon-entrar"src="assets/img/login.png">
-            <a class="buttons-lc" href="login.html"><button id="nav-entrar">LOGIN</button></a>
-            <a class="buttons-lc" href="cadastro.html"><button id="nav-cadastro">CADASTRO</button></a>
+            <a href="login.php"><img id="icon-entrar"src="assets/img/login.png"></a>
+            <a class="buttons-lc" href="login.php"><button id="nav-entrar">LOGIN</button></a>
+            <a class="buttons-lc" href="cadastro.php"><button id="nav-cadastro">CADASTRO</button></a>
 
         </nav>
     </header>

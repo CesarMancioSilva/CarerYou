@@ -32,10 +32,10 @@
                 
               
             </ul>
-            <a  href="login.html"><img id="icon-entrar"src="assets/img/login.png"></a>
+            <a  href="login.php"><img id="icon-entrar"src="assets/img/login.png"></a>
             
-            <a class="buttons-lc" href="login.html"><button id="nav-entrar">LOGIN</button></a>
-            <a class="buttons-lc" href="cadastro.html"><button id="nav-cadastro">CADASTRO</button></a>
+            <a class="buttons-lc" href="login.php"><button id="nav-entrar">LOGIN</button></a>
+            <a class="buttons-lc" href="cadastro.php"><button id="nav-cadastro">CADASTRO</button></a>
             
 
         </nav></header>

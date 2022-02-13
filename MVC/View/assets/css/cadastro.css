@@ -76,6 +76,16 @@ nav{
      background: #3DC9C4;
      border-radius: 6px;
  }
+ button{
+     cursor:pointer;
+ }
+ .btnVoltar{
+     display: block;
+ }
+ 
+ #caixa2, #caixa3{
+     background:#b9b9b9;
+ }
  .column-passos .linha{
     display: block;
     height: 65px;
@@ -131,6 +141,10 @@ nav{
     border:none;
     font-size: 20px;
 }
+.cadastro-nav .NextBackdiv{
+    display:flex;
+
+}
 .cadastro-nav .NextBackdiv button{
     background: transparent;
     border: 3px solid #3DC9C4;
@@ -165,10 +179,14 @@ nav{
     padding: 20px;
     border:2px solid rgb(175, 175, 175);
 }
-.parte1 .nome{
-    
 
+.parte2{
+    display:none;
 }
+.parte3{
+    display:none;
+}    
+
 .parte1 .quebraform{
     width: 100%;  
     display: flex;
@@ -176,6 +194,7 @@ nav{
     
 
 }
+
 .quebraform .quebra-esquerda{
     width: 60%;
     padding-right:15px ;

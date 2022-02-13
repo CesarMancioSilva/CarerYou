@@ -18,7 +18,7 @@
                 <div class="hamburger"></div>
             </label>
             
-            <img id="logo-monitor"src="assets/img/logo.png">
+            <a href="home.php"><img id="logo-monitor"src="assets/img/logo.png"></a>
             <ul>
                 
                 <li href="#"><a href="#">ASILOS/CASAS DE REPOUSO</a></li>
@@ -33,8 +33,8 @@
             </ul>
             <a  href="login.html"><img id="icon-entrar"src="assets/img/login.png"></a>
             
-            <a class="buttons-lc" href="login.html"><button id="nav-entrar">LOGIN</button></a>
-            <a class="buttons-lc" href="cadastro.html"><button id="nav-cadastro">CADASTRO</button></a>
+            <a class="buttons-lc" href="login.php"><button id="nav-entrar">LOGIN</button></a>
+            <a class="buttons-lc" href="cadastro.php"><button id="nav-cadastro">CADASTRO</button></a>
             
 
         </nav></header>
@@ -42,11 +42,11 @@
             <div class="pngLeft"><img src="assets/img/cadastro-leftpng.png"></div>
             <div class="cadastro">
                 <div class="column-passos">
-                    <div class="caixa">1</div>
+                    <div class="caixa" id="caixa1">1</div>
                     <div class="linha"></div>
-                    <div class="caixa">2</div>
+                    <div class="caixa" id="caixa2">2</div>
                     <div class="linha"></div>
-                    <div class="caixa">3</div>
+                    <div class="caixa" id="caixa3">3</div>
                 </div>
 
                 <div class="cadastro-form-div">
@@ -59,11 +59,11 @@
                         <div class="input-div">
 
                             <div class="column-passos2">
-                                    <div class="caixa2">1</div>
+                                    <div class="caixa2" id="caixa1">1</div>
                                     <div class="linha2"></div>
-                                    <div class="caixa2">2</div>
+                                    <div class="caixa2" id="caixa2">2</div>
                                     <div class="linha2"></div>
-                                    <div class="caixa2">3</div>
+                                    <div class="caixa2" id="caixa3">3</div>
                             </div>
 
                             <form>
@@ -92,6 +92,13 @@
                                             </div> 
                                         </div>
                                     </div>
+                                    
+                                </div>
+                                <div class="parte2">
+                                   2
+                                </div>
+                                <div class="parte3">
+                                   3
                                 </div>
     
                                 
@@ -103,8 +110,8 @@
 
                     <div class="cadastro-nav">
                         <div class="NextBackdiv">
-                            <button>VOLTAR</button>
-                            <button>CONTINUAR</button>
+                            <button class="btnVoltar" onclick="voltar()">VOLTAR</button>
+                            <button class="btnContinuar"onclick="proximo()">CONTINUAR</button>
                         </div>
                         <button class="cadastrar">CADASTRAR</button>
                     </div>
@@ -114,6 +121,7 @@
             </div>
             <div class="pngRight"><img src="assets/img/cadastro-rightpng.png"></div>
         </div>
+        <script src="scripts/cadastro.js"></script>
     
 </body>
 </html>
