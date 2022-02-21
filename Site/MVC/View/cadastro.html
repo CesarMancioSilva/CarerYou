@@ -59,11 +59,11 @@
                         <div class="input-div">
 
                             <div class="column-passos2">
-                                    <div class="caixa2" id="caixa1">1</div>
+                                    <div class="caixa2" id="caixa1mb">1</div>
                                     <div class="linha2"></div>
-                                    <div class="caixa2" id="caixa2">2</div>
+                                    <div class="caixa2" id="caixa2mb">2</div>
                                     <div class="linha2"></div>
-                                    <div class="caixa2" id="caixa3">3</div>
+                                    <div class="caixa2" id="caixa3mb">3</div>
                             </div>
 
                             <form>
@@ -95,11 +95,55 @@
                                     
                                 </div>
                                 <div class="parte2">
-                                    <input type="radio" id="html" name="fav_language" value="HTML">
-                                    <label for="html">HTML</label><br>
-                                   <div class="OPcuidador">a</div>
-                                   <div class="OPcliente">b</div>
+
+                                    <div class="OPradio">
+                                        <input onclick="OPcl()"type="radio" id="OPcliente" name="#" value="cuidador">
+                                        <label for="OPcliente">Cliente</label><br>
+                                        <input onclick="OPcu()"type="radio" id="OPcuidador" name="#" value="cuidador">
+                                        <label for="OPcuidador">Cuidador</label><br>
+                                        
+                                    </div>
+                                    <div class="clienteDiv">
+                                        <div class="main-cliente">
+                                            <img class="preview">
+                                            <div class="txtDiv">
+                                                <div class="mm">
+                                                    <h3>Adicione uma foto de perfil</h3>
+                                                    <p>Escola uma foto sua ou de seu familiar para idntificação na plataforma.</p>
+                                                    <div class="confirmação-cliente-div">
+                                                        <label class="cuid-button" for="fotoArquivo">Selecionar arquivo</label><p class="confirmação">Nenhum arquivo selecionado</p>
+                                                    </div>
+                                                    <input type="file" class="custom-file-input" id="fotoArquivo" style="display: none;">
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="cuidadorDiv">
+                                        <div class="cuidador-foto-div">
+                                            <img class="preview2">
+                                            <ul>
+                                                <li><h3>Adicione uma foto de perfil</h3></li>
+                                                <li>
+                                                    <label class="cuid-button" for="fotoCuidador">
+                                                        Escolher arquivo
+                                                    </label>
+                                                </li>
+                                                <li class="confirmação2">Nenhum arquivo selecionado</li>
+                                                <input type="file" name="" id="fotoCuidador" style="display: none;">
+                                            </ul>
+                                        </div>
+                                        <label for="certif-Input">
+                                            <div class="areaArquivo">Clique para adicionar um arquivo pdf certificando a atuação na area</div>
+                                        </label>
+                    
+                                         <input type="file" id="certif-Input" style="display: none;"/>
+                                    </div>
+                                    
                                 </div>
+
                                 <div class="parte3">
                                    3
                                 </div>

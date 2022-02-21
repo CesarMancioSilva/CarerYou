@@ -8,6 +8,12 @@ const caixa2 = columnPassos.querySelector("#caixa2");
 const caixa3 = columnPassos.querySelector("#caixa3");
 const caixa = [caixa1,caixa2,caixa3];
 
+const columnPassos2 = inputDiv.querySelector(".column-passos2");
+const caixa1mb = columnPassos2.querySelector("#caixa1mb");
+const caixa2mb = columnPassos2.querySelector("#caixa2mb");
+const caixa3mb = columnPassos2.querySelector("#caixa3mb");
+const caixamb = [caixa1mb,caixa2mb,caixa3mb];
+
 const cadastroNav = cadastro.querySelector(".cadastro-nav");
 const btnBack = cadastroNav.querySelector(".btnVoltar");
 const btnProx = cadastroNav.querySelector(".btnContinuar");
@@ -24,6 +30,7 @@ function proximo(){
     sessão[i].style.display="none";
     sessão[i+1].style.display="block";
     caixa[i + 1].style.background= "#3DC9C4";
+    caixamb[i + 1].style.background= "#3DC9C4";
     i++;
     if(i==1){
         btnBack.style.display="block";
@@ -33,6 +40,19 @@ function proximo(){
         btnProx.style.display="none";
     }
 }
+
+const clienteDiv = parte2.querySelector(".clienteDiv");
+const cuidadorDiv = parte2.querySelector(".cuidadorDiv");
+
+function OPcl(){
+    clienteDiv.style.display="block";
+    cuidadorDiv.style.display="none";
+}
+function OPcu(){
+    clienteDiv.style.display="none";
+    cuidadorDiv.style.display="block";
+}
+
 function voltar(){
     for(let z=i-1; z<=2; z++){
         sessão[z].style.display="block";
@@ -43,6 +63,7 @@ function voltar(){
     }
     for(let z=i; z<=2; z++){
         caixa[z].style.background="#b9b9b9";  
+        caixamb[z].style.background="#b9b9b9";  
     }
     if(i==0){
         btnBack.style.display="none";
@@ -53,3 +74,31 @@ function voltar(){
     }
     i--;
 }
+
+function readImage() {
+    if (this.files && this.files[0]) {
+        var file = new FileReader();
+        file.onload = function(e) {
+            document.querySelector(".preview").src = e.target.result;
+            document.querySelector(".preview2").src = e.target.result;
+        };       
+        file.readAsDataURL(this.files[0]);
+    }
+    document.querySelector(".confirmação").textContent="Arquivo selecionado";
+    document.querySelector(".confirmação").style.color="green";
+    document.querySelector(".confirmação2").textContent="Arquivo selecionado";
+    document.querySelector(".confirmação2").style.color="green";
+}
+document.getElementById("fotoArquivo").addEventListener("change", readImage, false);
+document.getElementById("fotoCuidador").addEventListener("change", readImage, false);
+
+const file = document.querySelector("#certif-Input");
+if(file.files.length == 0){
+    console.log(1);
+}
+else{
+    console.log(2); 
+}
+
+
+
