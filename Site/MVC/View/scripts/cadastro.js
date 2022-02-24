@@ -30,25 +30,69 @@ function proximo(){
     let nomeUsuario = parte1.querySelector("#nomeUsuario");
     let emailUsuario = parte1.querySelector("#emailUsuario");
     let senhaUsuario = parte1.querySelector("#senhaUsuario");
-    let senhaConfirmUsuario = parte1.querySelector("#senhaUsuario");
+    let senhaConfirmUsuario = parte1.querySelector("#senhaConfirmUsuario");
     let rgUsuario = parte1.querySelector("#rgUsuario");
-    
-    if(nomeUsuario.value.length!=0 && emailUsuario.value.length!=0 && senhaUsuario.value.length!=0 && senhaConfirmUsuario.value.length!=0 && rgUsuario.value.length!=0){
-        sessão[i].style.display="none";
-        sessão[i+1].style.display="block";
-        caixa[i + 1].style.background= "#3DC9C4";
-        caixamb[i + 1].style.background= "#3DC9C4";
-        i++;
-        if(i==1){
+    if (i==0){
+        if(nomeUsuario.value.length!=0 && emailUsuario.value.length!=0 && senhaUsuario.value.length!=0 && rgUsuario.value.length!=0 && senhaConfirmUsuario.value.length!=0){
+            sessão[i].style.display="none";
+            sessão[i+1].style.display="block";
+            caixa[i + 1].style.background= "#3DC9C4";
+            caixamb[i + 1].style.background= "#3DC9C4";
+            i++;
+        
             btnBack.style.display="block";
-            
+        
+        }else{
+            let parte1Span = parte1.querySelector("#parte1-Span").style.display="block";
         }
-        if(i==2){
-            btnProx.style.display="none";
-        }
-    }else{
-        log("preenche tudo caraio");
     }
+    else if(i==1){
+        
+        if(parte2.querySelector('#OPcliente').checked){
+            alert("cliente");
+            if(fotoArquivo.files.length == 0){
+                let clienteAviso = parte2.querySelector("#confirmação").style.display="block";
+                
+            }else{
+                alert("to com foto cliente");
+                alert("pode passar cliente");
+                sessão[i].style.display="none";
+                sessão[i+1].style.display="block";
+                caixa[i + 1].style.background= "#3DC9C4";
+                caixamb[i + 1].style.background= "#3DC9C4";
+                i++;
+            }
+        }else if(parte2.querySelector('#OPcuidador').checked){
+           alert("cuidador");
+
+           if(fotoArquivo.files.length == 0){
+            let clienteAviso = parte2.querySelector("#confirmação2").style.display="block";
+            }else{
+                let clienteAviso = parte2.querySelector("#confirmação2").style.color="green";
+            }
+
+            if(parte2.querySelector("#certif-Input").files.length == 0){
+                let pdfAviso = parte2.querySelector("#file-upload-filename");
+                pdfAviso.innerText="Nenhum arquivo selecionado!";
+                pdfAviso.style.color="red";
+            }else{
+                alert("compdf");
+            }
+
+            if(fotoArquivo.files.length != 0 && parte2.querySelector("#certif-Input").files.length != 0){
+                alert("pode passar cuidador");
+                sessão[i].style.display="none";
+                sessão[i+1].style.display="block";
+                caixa[i + 1].style.background= "#3DC9C4";
+                caixamb[i + 1].style.background= "#3DC9C4";
+                i++;
+            }
+        }
+        
+        
+
+    }
+    
 }
 
 const clienteDiv = parte2.querySelector(".clienteDiv");
@@ -93,13 +137,15 @@ function readImage() {
         };       
         file.readAsDataURL(this.files[0]);
     }
-    document.querySelector(".confirmação").textContent="Arquivo selecionado";
-    document.querySelector(".confirmação").style.color="green";
-    document.querySelector(".confirmação2").textContent="Arquivo selecionado";
-    document.querySelector(".confirmação2").style.color="green";
+    document.querySelector("#confirmação").textContent="Arquivo selecionado";
+    document.querySelector("#confirmação").style.color="green";
+    document.querySelector("#confirmação").style.display="block";
+    document.querySelector("#confirmação2").textContent="Arquivo selecionado";
+    document.querySelector("#confirmação2").style.color="green";
+    document.querySelector("#confirmação2").style.display="block";
 }
 document.getElementById("fotoArquivo").addEventListener("change", readImage, false);
-document.getElementById("fotoCuidador").addEventListener("change", readImage, false);
+
 
 const file = document.querySelector("#certif-Input");
 if(file.files.length == 0){
@@ -132,8 +178,6 @@ function verificaExtensao($input) {
   
     if(typeof extPermitidas.find(function(ext){ return extArquivo == ext; }) == 'undefined') {
       alert('Inserir um arquivo PDF para melhor visualização!');
-    } else {
-      alert('Ok!');
-    }
+    } 
   }
   

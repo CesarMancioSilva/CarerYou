@@ -143,6 +143,17 @@ nav{
     border:none;
     font-size: 20px;
 }
+.cadastro-nav label{
+    width:150px;
+    height: 50px;
+    background-color: #b9b9b9;
+    color:white;
+    border:none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .cadastro-nav .NextBackdiv{
     display:flex;
 
@@ -187,20 +198,23 @@ nav{
     padding: 20px;
     border:2px solid rgb(175, 175, 175);
 }
-
+#parte1-Span{
+    margin-top:15px;
+    color:red;
+    display:none;
+}
 .parte2{
     display:none;
     
 }
+
 .parte2 #OPcuidador, #OPcliente{
     width:20px;
     height:20px;
     margin:15px;
     padding:10px;
 }
-.OPcuidador{
 
-}
 .parte2 .OPradio{
     display:flex;
     align-items: center;
@@ -274,6 +288,14 @@ nav{
 }
 .confirmação-cliente-div{
     margin-top: 15px;
+}
+.confirmação-cliente-div p{
+    color:red;
+    display:none;
+}
+#confirmação2{
+    color:red;
+    display:none;
 }
 
 .cuidador-foto-div img{
