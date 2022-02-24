@@ -27,26 +27,27 @@ var i=0;
 
 function proximo(){
    
-    sessão[i].style.display="none";
-    sessão[i+1].style.display="block";
-    caixa[i + 1].style.background= "#3DC9C4";
-    caixamb[i + 1].style.background= "#3DC9C4";
-    i++;
-    if(i==1){
-        btnBack.style.display="block";
-         
-    }
-    if(i==2){
-        btnProx.style.display="none";
-    }
     let nomeUsuario = parte1.querySelector("#nomeUsuario");
     let emailUsuario = parte1.querySelector("#emailUsuario");
     let senhaUsuario = parte1.querySelector("#senhaUsuario");
     let senhaConfirmUsuario = parte1.querySelector("#senhaUsuario");
     let rgUsuario = parte1.querySelector("#rgUsuario");
     
-    if(nomeUsuario.value.length==0 && emailUsuario.value.length==0 && nomeUsuario.value.length==0){
-        console.log("kk");
+    if(nomeUsuario.value.length!=0 && emailUsuario.value.length!=0 && senhaUsuario.value.length!=0 && senhaConfirmUsuario.value.length!=0 && rgUsuario.value.length!=0){
+        sessão[i].style.display="none";
+        sessão[i+1].style.display="block";
+        caixa[i + 1].style.background= "#3DC9C4";
+        caixamb[i + 1].style.background= "#3DC9C4";
+        i++;
+        if(i==1){
+            btnBack.style.display="block";
+            
+        }
+        if(i==2){
+            btnProx.style.display="none";
+        }
+    }else{
+        log("preenche tudo caraio");
     }
 }
 
