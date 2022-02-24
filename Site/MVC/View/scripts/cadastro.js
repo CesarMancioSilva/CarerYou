@@ -39,6 +39,15 @@ function proximo(){
     if(i==2){
         btnProx.style.display="none";
     }
+    let nomeUsuario = parte1.querySelector("#nomeUsuario");
+    let emailUsuario = parte1.querySelector("#emailUsuario");
+    let senhaUsuario = parte1.querySelector("#senhaUsuario");
+    let senhaConfirmUsuario = parte1.querySelector("#senhaUsuario");
+    let rgUsuario = parte1.querySelector("#rgUsuario");
+    
+    if(nomeUsuario.value.length==0 && emailUsuario.value.length==0 && nomeUsuario.value.length==0){
+        console.log("kk");
+    }
 }
 
 const clienteDiv = parte2.querySelector(".clienteDiv");
@@ -69,9 +78,8 @@ function voltar(){
         btnBack.style.display="none";
        
     }
-    if(i==1){
         btnProx.style.display="block";;
-    }
+    
     i--;
 }
 
@@ -117,4 +125,14 @@ function showFileName( event ) {
   infoArea.style.color="green";
 }
 
-
+function verificaExtensao($input) {
+    var extPermitidas = ['pdf'];
+    var extArquivo = $input.value.split('.').pop();
+  
+    if(typeof extPermitidas.find(function(ext){ return extArquivo == ext; }) == 'undefined') {
+      alert('Inserir um arquivo PDF para melhor visualização!');
+    } else {
+      alert('Ok!');
+    }
+  }
+  

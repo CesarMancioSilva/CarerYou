@@ -18,7 +18,7 @@
                 <div class="hamburger"></div>
             </label>
             
-            <a href="home.php"><img id="logo-monitor"src="assets/img/logo.png"></a>
+            <a href="home.php"><img id="logo-monitor"src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/logo.png?v=1645195527997"></a>
             <ul>
                 
                 <li href="#"><a href="#">ASILOS/CASAS DE REPOUSO</a></li>
@@ -31,7 +31,7 @@
                 
               
             </ul>
-            <a  href="login.html"><img id="icon-entrar"src="assets/img/login.png"></a>
+            <a  href="login.html"><img id="icon-entrar"src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/login.png?v=1645195535033"></a>
             
             <a class="buttons-lc" href="login.php"><button id="nav-entrar">LOGIN</button></a>
             <a class="buttons-lc" href="cadastro.php"><button id="nav-cadastro">CADASTRO</button></a>
@@ -68,25 +68,25 @@
 
                             <form>
                                 <div class="parte1">
-                                    <input class="nome"type="text" placeholder="Nome de usuario">
+                                    <input class="nome"type="text" placeholder="Nome de usuario" id="nomeUsuario">
                                     <div class="quebraform">
                                         <div class="quebra-esquerda">
-                                            <input type="email" placeholder="Email">
-                                            <input type="password" placeholder="Senha">
-                                            <input type="password" placeholder="Confirmar senha">
+                                            <input type="email" placeholder="Email" id="emailUsuario">
+                                            <input type="password" placeholder="Senha" id="senhaUsuario">
+                                            <input type="password" placeholder="Confirmar senha"id="senhaConfirmUsuario">
                                         </div>
                                         <div class="quebra-direita">
-                                            <input type="text" placeholder="Numero do RG (Registro Geral)">
+                                            <input type="text" placeholder="Numero do RG (Registro Geral)" id="rgUsuario">
                                             <div class="quebra-direitapp">
-                                                    <select placeholder="Região"class="quebraInput"name="cars" id="cars">
+                                                    <select placeholder="Gênero"class="quebraInput"name="cars" id="generoUsuario">
                                                             <option value="volvo">Masculino</option>
                                                             <option value="saab">Feminino</option>
                                                             <option value="saab">Prefiro não informar</option>
                                                             
                                                     </select>
-                                                    <select placeholder="Gênero"class="quebraInput"name="cars" id="cars">
-                                                            <option value="volvo">São Paulo</option>
-                                                            <option value="saab">Santos</option>
+                                                    <select placeholder="Região"class="quebraInput"name="Região" id="regiãoUsuario" >
+                                                            <option value="São Paulo">São Paulo</option>
+                                                            <option value="Santos">Santos</option>
                                                     </select>
                                                 
                                             </div> 
@@ -139,14 +139,33 @@
                                             <div class="areaArquivo"><div id="file-upload-filename">Clique para adicionar um arquivo pdf certificando a atuação na area</div></div>
                                         </label>
                     
-                                         <input type="file" id="certif-Input" style="display: none;"/>
+                                         <input type="file" id="certif-Input" onchange="verificaExtensao(this)"style="display: none;"/>
                                     </div>
                                     
                                 </div>
 
                                 <div class="parte3">
-                                   3
+                                   <h2>Privacidade e Termos</h2>
+                                   <div class="caixatxt">
+                                        <h3><b>SUBTITULO</b></h3>
+                                        <p>Lorem ipsum quam est nisl id tempus id habitasse, primis phasellus massa egestas non conubia. aliquam vitae in sed dapibus aliquet luctus nam tempus, ornare sapien sit commodo per in ullamcorper ornare eros, purus inceptos egestas turpis duis nam pretium. mauris enim porttitor lorem pulvinar ad erat urna velit tempus orci, urna ad aenean pulvinar elit a donec nunc. auctor himenaeos mi venenatis vestibulum consequat praesent curabitur eget, integer massa himenaeos risus mi purus et libero litora, erat vel vehicula nisl aptent class suspendisse. non inceptos euismod aenean erat in pulvinar malesuada, turpis torquent quis nec metus congue gravida nam, nullam nunc maecenas porta elit tempus.  non inceptos euismod aenean erat in pulvinar malesuada, turpis torquent quis nec metus congue gravida nam, nullam nunc maecenas porta elit tempus. </p>
+                                        <br>
+                                        <h3><b>SUBTITULO</b></h3>
+                                        <p>Varius cubilia eros tellus adipiscing nunc aliquet leo sapien gravida, hendrerit metus ac quis tempus vivamus dictumst cras magna, dapibus aenean nulla ac neque rhoncus maecenas fames. adipiscing potenti bibendum nullam bibendum nunc lacinia dapibus ultrices fringilla mauris, sagittis sapien ullamcorper malesuada laoreet aenean ornare ut dapibus vehicula, diam ipsum condimentum erat nisl fringilla velit ultrices amet. nam et morbi tincidunt neque odio sapien fusce magna nisl gravida, posuere nec senectus aenean hendrerit libero curae lacus. non mattis tempus cubilia sagittis neque inceptos etiam, ultrices a felis mi bibendum tortor enim fames, tellus tincidunt semper ornare cursus maecenas. </p>
+                                        <br>
+                                        <h3><b>SUBTITULO</b></h3>
+                                        <p>Varius cubilia eros tellus adipiscing nunc aliquet leo sapien gravida, hendrerit metus ac quis tempus vivamus dictumst cras magna, dapibus aenean nulla ac neque rhoncus maecenas fames. adipiscing potenti bibendum nullam bibendum nunc lacinia dapibus ultrices fringilla mauris, sagittis sapien ullamcorper malesuada laoreet aenean ornare ut dapibus vehicula, diam ipsum condimentum erat nisl fringilla velit ultrices amet. nam et morbi tincidunt neque odio sapien fusce magna nisl gravida, posuere nec senectus aenean hendrerit libero curae lacus. non mattis tempus cubilia sagittis neque inceptos etiam, ultrices a felis mi bibendum tortor enim fames, tellus tincidunt semper ornare cursus maecenas. </p>
+                                        <br>
+                                        <h3><b>SUBTITULO</b></h3>
+                                        <p>Varius cubilia eros tellus adipiscing nunc aliquet leo sapien gravida, hendrerit metus ac quis tempus vivamus dictumst cras magna, dapibus aenean nulla ac neque rhoncus maecenas fames. adipiscing potenti bibendum nullam bibendum nunc lacinia dapibus ultrices fringilla mauris, sagittis sapien ullamcorper malesuada laoreet aenean ornare ut dapibus vehicula, diam ipsum condimentum erat nisl fringilla velit ultrices amet. nam et morbi tincidunt neque odio sapien fusce magna nisl gravida, posuere nec senectus aenean hendrerit libero curae lacus. non mattis tempus cubilia sagittis neque inceptos etiam, ultrices a felis mi bibendum tortor enim fames, tellus tincidunt semper ornare cursus maecenas. </p>
+                                        
+                                   </div>
+                                   <div class="checkTermo-Div">
+                                    <input type="checkbox" id="checkTermo">
+                                    <label for="checkTermo">Li e aceito os Termos de uso do CarerYou</label>
+                                    </div>
                                 </div>
+                                
     
                                 
                                 

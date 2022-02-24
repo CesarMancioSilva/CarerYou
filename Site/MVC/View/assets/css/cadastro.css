@@ -51,6 +51,7 @@ nav{
     right:16%;
     background:;
     position:absolute;
+   
     display: flex; 
     top:20%;
  }
@@ -128,6 +129,7 @@ nav{
      width:100%;
      background:;
      padding-top: 20px;
+   padding-bottom: 10px;
      display: flex;
      justify-content: space-between;
     
@@ -191,12 +193,13 @@ nav{
     
 }
 .parte2 #OPcuidador, #OPcliente{
-    width: auto;
+    width:20px;
+    height:20px;
     margin:15px;
     padding:10px;
 }
 .OPcuidador{
-    width:100%
+
 }
 .parte2 .OPradio{
     display:flex;
@@ -275,7 +278,8 @@ nav{
 
 .cuidador-foto-div img{
     width: 120px;
-    
+    min-width: 120px;
+    min-height: 120px;
     height: 120px;
     border-radius: 50%;
     background: rgb(206, 206, 206);
@@ -308,6 +312,40 @@ nav{
     
 
 }
+.parte3 h2{
+    margin-top:30px;
+    color:rgb(110, 110, 110);
+}
+.parte3 h3{
+    font-size: 110%;
+    color:rgb(110, 110, 110);
+}
+.parte3 p{
+    margin-top:10px;
+    color:rgb(153, 152, 152);
+}
+.parte3 .caixatxt{
+    margin-top:15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    height:200px;
+    overflow:auto;
+}
+.parte3 .checkTermo-Div{
+    display:flex;
+    align-items: center;
+}
+.parte3 .checkTermo-Div label{
+    color:rgb(110, 110, 110)
+}
+#checkTermo{
+    
+    width: 20px;
+    height: 20px;
+    margin:15px 15px 15px 0px;
+    padding:10px;
+}
 
 .quebraform .quebra-esquerda{
     width: 60%;
@@ -318,9 +356,8 @@ nav{
 .quebraform .quebra-direita{
     width: 40%;
     padding-left:15px ;
-    background: ;
-
 }
+
 @media(max-width:990px){ 
     .cadastro{
         width:75%;
@@ -349,7 +386,7 @@ nav{
     }
     .quebraform .quebra-direita{
     width: 100%;
-    padding-left:0px ; 
+    padding-left:0px;
     }
     .column-passos{
         display: none;
@@ -443,6 +480,14 @@ nav{
     margin-top: 30px;
 }
 
+}
+@media(max-width:420px){
+    .parte3 .caixatxt{
+        height:300px;
+    }
+    .parte3 label{
+        font-size: 95%;
+    }
 }
 @media(max-width:400px){
     h1{
