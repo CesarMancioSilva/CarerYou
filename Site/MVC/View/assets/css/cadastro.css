@@ -49,10 +49,9 @@ nav{
     width:60%;
     left:16%;
     right:16%;
-    background:;
     position:absolute;
    
-    display: flex; 
+    display:none; 
     top:20%;
  }
  .column-passos{
@@ -380,6 +379,50 @@ nav{
     padding-left:15px ;
 }
 
+.AvisoCard{
+    position: absolute;
+    height:55%;
+    width:60%;
+    min-width:500px;
+    top: 53%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    border:1px solid black;
+}
+.aviso-left{
+    height:100%;
+    width:30%;
+    min-width:200px;
+    background:;
+    border: 1px solid;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.aviso-left img{
+    width:150px;
+    height:150px;
+    border:3px solid black;
+    border-radius:50%;
+    margin-bottom:60px;
+}
+.aviso-info{
+    text-align: center;
+}
+.aviso-right{
+    height:100%;
+    width:70%;
+    min-width:300px;
+    display:flex;
+    flex-direction: column;
+    padding: 5%;
+    text-align: center;
+
+}
 @media(max-width:990px){ 
     .cadastro{
         width:75%;
