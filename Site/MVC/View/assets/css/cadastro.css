@@ -51,7 +51,7 @@ nav{
     right:16%;
     position:absolute;
    
-    display:none; 
+    display:flex; 
     top:20%;
  }
  .column-passos{
@@ -109,11 +109,9 @@ nav{
  }
  .cadastro-form-div .input-side .titulo{
     width:100%;
-    background:y;
     display: flex;
     align-items: center;
     flex-flow: wrap;
-
 }
 .cadastro-form-div .input-side .subtitulo{
     padding-left: 30px;
@@ -149,7 +147,7 @@ nav{
     color:white;
     border:none;
     font-size: 20px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -192,10 +190,13 @@ nav{
 }
 .input-side .input-div select{
     width: 100%;
-    height: 0px;
+    
     margin-top: 30px;
-    padding: 20px;
+    padding: 11px;
     border:2px solid rgb(175, 175, 175);
+}
+.input-side .input-div select .Foption{
+    color:rgb(175, 175, 175);
 }
 #parte1-Span{
     margin-top:15px;
@@ -388,7 +389,7 @@ nav{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    display: flex;
+    display: none;
     border:1px solid black;
 }
 .aviso-left{
@@ -419,9 +420,19 @@ nav{
     min-width:300px;
     display:flex;
     flex-direction: column;
-    padding: 5%;
+    padding-top:6%;
+    padding-bottom:6%;
+    padding-left: 5%;
+    padding-right: 5%;
     text-align: center;
+    justify-content: space-around;
 
+}
+.aviso-right button{
+    width: 30%;
+    height: 10%;
+    margin-left: 35%;
+    
 }
 @media(max-width:990px){ 
     .cadastro{

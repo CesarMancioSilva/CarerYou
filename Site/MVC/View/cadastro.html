@@ -78,13 +78,15 @@
                                         <div class="quebra-direita">
                                             <input type="text" placeholder="Numero do RG (Registro Geral)" id="rgUsuario">
                                             <div class="quebra-direitapp">
-                                                    <select placeholder="Gênero"class="quebraInput"name="cars" id="generoUsuario">
+                                                    <select class="quebraInput"name="cars" id="generoUsuario">
+                                                            <option class="Foption"value="" disabled selected>Genero</option>
                                                             <option value="volvo">Masculino</option>
                                                             <option value="saab">Feminino</option>
                                                             <option value="saab">Prefiro não informar</option>
                                                             
                                                     </select>
                                                     <select placeholder="Região"class="quebraInput"name="Região" id="regiãoUsuario" >
+                                                            <option class="Foption"value="" disabled selected>Região</option>
                                                             <option value="São Paulo">São Paulo</option>
                                                             <option value="Santos">Santos</option>
                                                     </select>
@@ -163,7 +165,7 @@
                                         
                                    </div>
                                    <div class="checkTermo-Div">
-                                    <input type="checkbox" id="checkTermo">
+                                    <input type="checkbox" id="checkTermo"value="I am Agree!">
                                     <label for="checkTermo">Li e aceito os Termos de uso do CarerYou</label>
                                     </div>
                                 </div>
@@ -181,7 +183,7 @@
                             <button class="btnVoltar" onclick="voltar()">VOLTAR</button>
                             <button class="btnContinuar"onclick="proximo()">CONTINUAR</button>
                         </div>
-                        <label for="submit"class="cadastrar" >CADASTRAR</label>
+                        <label onclick="Endcadastrar" for="submit"class="cadastrar">CADASTRAR</label>
                     </div>
 
                 </div>
@@ -191,16 +193,18 @@
         </div>
         <div class="AvisoCard">
             <div class="aviso-left">
-                <img src="assets/img/tata.jpg">
+                <img class="preview">
                 <div class="aviso-info">
-                    <h2>Talita Ouro Nicolch</h2>
-                    <p>Cuidadora CarerYou</p>
+                    <h2 class="nomInfo">Talita Ouro</h2>
+                    <p>Cuidador(a) CarerYou</p>
 
                 </div>
 
             </div>
             <div class="aviso-right">
-                <h3>Agradecemos sua escolha de participar do CarerYou com seus serviços</h3>
+                <h2>Validação de cadastro</h2>
+                <p>Agradecemos sua escolha de fazer parte do CarerYou com seus serviços. No momento seu cadastro está em analise e logo será atualizado no e-mail inserido:</p>
+                <h3>talitapotuda@gmail.com</h3>
                 <button>Voltar para home</button>
         </div>
         <script src="scripts/cadastro.js"></script>

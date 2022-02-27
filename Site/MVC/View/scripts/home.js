@@ -6,8 +6,6 @@ const hamburger = nav.querySelector(".hamburger")
 const footer = document.querySelector(".footer")
 
 hamburger.addEventListener("click", () => {
-
-    
     footer.classList.toggle("on", show)
     show = !show;
 })

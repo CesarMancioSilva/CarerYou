@@ -17,6 +17,7 @@ const caixamb = [caixa1mb,caixa2mb,caixa3mb];
 const cadastroNav = cadastro.querySelector(".cadastro-nav");
 const btnBack = cadastroNav.querySelector(".btnVoltar");
 const btnProx = cadastroNav.querySelector(".btnContinuar");
+const cadastrar = cadastroNav.querySelector(".cadastrar");
 
 const parte1 = inputDiv.querySelector(".parte1");
 const parte2 = inputDiv.querySelector(".parte2");
@@ -180,4 +181,23 @@ function verificaExtensao($input) {
       alert('Inserir um arquivo PDF para melhor visualização!');
     } 
   }
-  
+
+  document.getElementById('checkTermo').onclick = function() {
+    // access properties using this keyword
+    if ( this.checked ) {
+        // Returns true if checked
+        cadastrar.style.backgroundColor = "#3DC9C4";
+        cadastrar.style.display = "flex";
+    } else {
+        cadastrar.style.display = "none";
+    }
+};
+
+const AvisoCard = document.querySelector("AvisoCard");
+function Endcadastrar(){
+    if(parte2.querySelector('#OPcuidador').checked){
+        cadastrar.style.display="none";
+        AvisoCard.styl.display="flex";
+
+    }
+}
