@@ -25,6 +25,18 @@ const parte3 = inputDiv.querySelector(".parte3");
 const sessão = [parte1,parte2,parte3];
 var i=0;
 
+const inputRG = document.querySelector("#rgUsuario");
+inputRG.onkeypress = e => {
+    if(e.keyCode >= 48 && e.keyCode <=57){
+        if(inputRG.value.length == 2 || inputRG.value.length == 6){
+            inputRG.value+="."
+        } else if(inputRG.value.length == 10){
+            inputRG.value+="-";
+        }
+    } else {
+        e.preventDefault();
+    }
+}
 
 function proximo(){
    
@@ -50,13 +62,9 @@ function proximo(){
     else if(i==1){
         
         if(parte2.querySelector('#OPcliente').checked){
-            alert("cliente");
             if(fotoArquivo.files.length == 0){
                 let clienteAviso = parte2.querySelector("#confirmação").style.display="block";
-                
             }else{
-                alert("to com foto cliente");
-                alert("pode passar cliente");
                 sessão[i].style.display="none";
                 sessão[i+1].style.display="block";
                 caixa[i + 1].style.background= "#3DC9C4";
@@ -64,7 +72,6 @@ function proximo(){
                 i++;
             }
         }else if(parte2.querySelector('#OPcuidador').checked){
-           alert("cuidador");
 
            if(fotoArquivo.files.length == 0){
             let clienteAviso = parte2.querySelector("#confirmação2").style.display="block";
@@ -76,12 +83,9 @@ function proximo(){
                 let pdfAviso = parte2.querySelector("#file-upload-filename");
                 pdfAviso.innerText="Nenhum arquivo selecionado!";
                 pdfAviso.style.color="red";
-            }else{
-                alert("compdf");
             }
 
             if(fotoArquivo.files.length != 0 && parte2.querySelector("#certif-Input").files.length != 0){
-                alert("pode passar cuidador");
                 sessão[i].style.display="none";
                 sessão[i+1].style.display="block";
                 caixa[i + 1].style.background= "#3DC9C4";
