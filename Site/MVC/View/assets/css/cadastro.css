@@ -1,720 +1,596 @@
 * {
-    padding: 0;
-    margin:0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body, html{height: 100%;}
-nav{
-    background:white;
-    z-index: 100;
+body,
+html {
+  height: 100%;
 }
-.content{
-    width:100vw;
-    height:100%;
-    
-    padding-top:95px;
-    
-    display: flex;
-    justify-content:space-between;
-    
+nav {
+  background: white;
+  z-index: 100;
 }
-.pngLeft{
-   height:calc(100% - 130px);
-   width:18%;
-   bottom:0;
-   position:absolute; 
- 
+.content {
+  width: 100vw;
+  height: 100%;
+
+  padding-top: 95px;
+
+  display: flex;
+  justify-content: space-between;
 }
-.pngLeft img{
-    position: absolute;
-    bottom:0;
-    width:110%;
- }
-.pngRight{
-    height:calc(100% - 130px);
-    width:18%;
-    right:0;
-    
-    position:absolute; 
- }
- .pngRight img{
-    width:85%;
-    top:0;
-    right:0;
-    position:absolute;
-    z-index: -10; 
- }
- .cadastro{
-    height:calc(90% - 95px);
-    width:60%;
-    left:16%;
-    right:16%;
-    position:absolute;
-   
-    display:none; 
-    top:20%;
- }
- .column-passos{
-     height: 100%;
-     width:20%;
-     background:;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     background: ;
- }
- .column-passos .caixa{
-     display: block;
-     width: 60px;
-     height: 60px;
-     color:white;
-     font-size: 30px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     background: #3DC9C4;
-     border-radius: 6px;
- }
- button{
-     cursor:pointer;
- }
- .btnVoltar{
-     display: block;
- }
- 
- #caixa2, #caixa3,#caixa2mb, #caixa3mb{
-     background:#b9b9b9;
- }
- .column-passos .linha{
+.pngLeft {
+  height: calc(100% - 130px);
+  width: 18%;
+  bottom: 0;
+  position: absolute;
+}
+.pngLeft img {
+  position: absolute;
+  bottom: 0;
+  width: 110%;
+}
+.pngRight {
+  height: calc(100% - 130px);
+  width: 18%;
+  right: 0;
+
+  position: absolute;
+}
+.pngRight img {
+  width: 85%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  z-index: -10;
+}
+.cadastro {
+  height: calc(90% - 95px);
+  width: 60%;
+  left: 16%;
+  right: 16%;
+  position: absolute;
+
+  display: flex;
+  top: 20%;
+}
+.column-passos {
+  height: 100%;
+  width: 20%;
+  background: ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: ;
+}
+.column-passos .caixa {
+  display: block;
+  width: 60px;
+  height: 60px;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #3dc9c4;
+  border-radius: 6px;
+}
+button {
+  cursor: pointer;
+}
+.btnVoltar {
+  display: block;
+}
+
+#caixa2,
+#caixa3,
+#caixa2mb,
+#caixa3mb {
+  background: #b9b9b9;
+}
+.column-passos .linha {
+  display: block;
+  height: 65px;
+  width: 6px;
+  background: #b9b9b9;
+}
+.column-passos2 {
+  width: 100%;
+  height: 50px;
+  background: red;
+  display: none;
+}
+.cadastro-form-div {
+  width: 100%;
+  height: 100%;
+
+  padding-top: 3%;
+}
+.input-side {
+  display: block;
+}
+.cadastro-form-div .input-side .titulo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+}
+.cadastro-form-div .input-side .subtitulo {
+  padding-left: 30px;
+  color: #8b8b8b;
+}
+.cadastro-form-div .input-side .subtitulo a {
+  text-decoration: none;
+  padding-left: 5px;
+  color: #3dc9c4;
+}
+.cadastro-form-div .cadastro-nav {
+  width: 100%;
+  background: ;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cadastro-nav button {
+  width: 150px;
+  height: 50px;
+  background-color: #b9b9b9;
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+.cadastro-nav label {
+  width: 150px;
+  height: 50px;
+  background-color: #b9b9b9;
+  color: white;
+  border: none;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.cadastro-nav .NextBackdiv {
+  display: flex;
+}
+.cadastro-nav .NextBackdiv button {
+  background: transparent;
+  border: 3px solid #3dc9c4;
+  color: #3dc9c4;
+  font-size: 20px;
+}
+.cadastro-nav .NextBackdiv button:not(:first-child) {
+  background: transparent;
+  border: 3px solid #3dc9c4;
+  color: #3dc9c4;
+  font-size: 20px;
+  margin-left: 15px;
+}
+.input-side .input-div {
+  padding-top: 0px;
+  width: 100%;
+  background: ;
+}
+.input-side .input-div input {
+  width: 100%;
+  height: 0px;
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid rgb(175, 175, 175);
+}
+.input-side .input-div input {
+  height: 10px;
+
+  border: 2px solid rgb(175, 175, 175);
+}
+.input-side .input-div select {
+  width: 100%;
+
+  margin-top: 30px;
+  padding: 11px;
+  border: 2px solid rgb(175, 175, 175);
+}
+.input-side .input-div select .Foption {
+  color: rgb(175, 175, 175);
+}
+#parte1-Span {
+  margin-top: 15px;
+  color: red;
+  display: none;
+}
+.parte2 {
+  display: none;
+}
+
+.parte2 #OPcuidador,
+#OPcliente {
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  padding: 10px;
+}
+
+.parte2 .OPradio {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  color: rgb(88, 88, 88);
+  font-size: 130%;
+}
+.clienteDiv,
+.cuidadorDiv {
+  display: none;
+}
+.clienteDiv {
+  align-items: center;
+}
+.main-cliente {
+  display: flex;
+  align-items: center;
+  height: 270px;
+}
+
+.main-cliente img {
+  width: 160px;
+  margin-left: 20px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgb(206, 206, 206);
+}
+.main-cliente h3 {
+  color: rgb(88, 88, 88);
+}
+.main-cliente p {
+  color: rgb(110, 110, 110);
+}
+
+.fotoDiv {
+  width: 200px;
+}
+.txtDiv {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  margin-left: 40px;
+}
+
+.txtDiv #fotoArquivo {
+  width: 300px;
+  height: 26px;
+  padding: 0;
+  border: none;
+}
+.txtDiv p {
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+.cuidador-foto-div {
+  margin-top: 0px;
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  color: rgb(80, 80, 80);
+}
+.cuidador-foto-div ul {
+  list-style: none;
+  line-height: 25px;
+  margin-left: 30px;
+}
+.confirmação-cliente-div {
+  margin-top: 15px;
+}
+.confirmação-cliente-div p {
+  color: red;
+  display: none;
+}
+#confirmação2 {
+  color: red;
+  display: none;
+}
+
+.cuidador-foto-div img {
+  width: 120px;
+  min-width: 120px;
+  min-height: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgb(206, 206, 206);
+}
+.areaArquivo {
+  width: 100%;
+  height: 100px;
+  border: 3px dotted rgb(110, 110, 110);
+  border-radius: 8px;
+  color: rgb(110, 110, 110);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.cuid-button {
+  padding: 2px;
+  height: 30px;
+  border: 1px solid black;
+}
+.parte3 {
+  display: none;
+}
+
+.parte1 .quebraform {
+  width: 100%;
+  display: flex;
+  padding-top: 0px;
+}
+.parte3 h2 {
+  margin-top: 30px;
+  color: rgb(110, 110, 110);
+}
+.parte3 h3 {
+  font-size: 110%;
+  color: rgb(110, 110, 110);
+}
+.parte3 p {
+  margin-top: 10px;
+  color: rgb(153, 152, 152);
+}
+.parte3 .caixatxt {
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+}
+.parte3 .checkTermo-Div {
+  display: flex;
+  align-items: center;
+}
+.parte3 .checkTermo-Div label {
+  color: rgb(110, 110, 110);
+}
+#checkTermo {
+  width: 20px;
+  height: 20px;
+  margin: 15px 15px 15px 0px;
+  padding: 10px;
+}
+
+.quebraform .quebra-esquerda {
+  width: 60%;
+  padding-right: 15px;
+  background: ;
+}
+.quebraform .quebra-direita {
+  width: 40%;
+  padding-left: 15px;
+}
+
+.AvisoCard {
+  position: absolute;
+  height: 55%;
+  width: 60%;
+  min-width: 500px;
+  top: 53%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  border: 1px solid black;
+}
+.aviso-left {
+  height: 100%;
+  width: 30%;
+  min-width: 200px;
+  background: ;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.aviso-left img {
+  width: 150px;
+  height: 150px;
+  border: 3px solid black;
+  border-radius: 50%;
+  margin-bottom: 60px;
+}
+.aviso-info {
+  text-align: center;
+}
+.aviso-right {
+  height: 100%;
+  width: 70%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: center;
+  justify-content: space-around;
+}
+.aviso-right button {
+  width: 30%;
+  height: 10%;
+  margin-left: 35%;
+}
+@media (max-width: 990px) {
+  .cadastro {
+    width: 75%;
+    left: 8%;
+    right: 22%;
+  }
+}
+@media (max-width: 821px) {
+  .cadastro-form-div .input-side .titulo {
     display: block;
-    height: 65px;
-     width: 6px;
-     background:  #b9b9b9;
-}
-.column-passos2{
+  }
+  .cadastro-form-div .input-side .subtitulo {
+    padding-left: 0px;
+    color: #8b8b8b;
+  }
+  .parte1 .quebraform {
     width: 100%;
-    height:50px;
-    background:red;
-    display: none;
-} 
- .cadastro-form-div{
-     width:100%;
-     height:100%;
-     
-     padding-top: 3%;
- }
- .input-side{
-     display: block;
- }
- .cadastro-form-div .input-side .titulo{
-    width:100%;
-    display: flex;
-    align-items: center;
-    flex-flow: wrap;
-}
-.cadastro-form-div .input-side .subtitulo{
-    padding-left: 30px;
-    COLOR:#8b8b8b;
-}
-.cadastro-form-div .input-side .subtitulo a{
-    text-decoration: none;
-    padding-left: 5px;
-    color:#3DC9C4 ;
-}
- .cadastro-form-div .cadastro-nav{
-     width:100%;
-     background:;
-     padding-top: 20px;
-   padding-bottom: 10px;
-     display: flex;
-     justify-content: space-between;
-    
-}
-
-.cadastro-nav button{
-    width:150px;
-    height: 50px;
-    background-color: #b9b9b9;
-    color:white;
-    border:none;
-    font-size: 20px;
-}
-.cadastro-nav label{
-    width:150px;
-    height: 50px;
-    background-color: #b9b9b9;
-    color:white;
-    cursor:pointer;
-    border:none;
-    font-size: 20px;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-.cadastro-nav .NextBackdiv{
-    display:flex;
-
-}
-.cadastro-nav .NextBackdiv button{
-    background: transparent;
-    border: 3px solid #3DC9C4;
-    color:#3DC9C4;
-    font-size: 20px;
-
-}
-.cadastro-nav .NextBackdiv button:not(:first-child){
-    background: transparent;
-    border: 3px solid #3DC9C4;
-    color:#3DC9C4;
-    font-size: 20px;
-    margin-left: 15px;
-
-}
-.input-side .input-div{
+    display: block;
     padding-top: 0px;
-    width:100%;
-    background: ;
-}
-.input-side .input-div input{
+  }
+  .quebraform .quebra-esquerda {
     width: 100%;
-    height: 0px;
-    margin-top: 30px;
-    padding: 20px;
-    border:2px solid rgb(175, 175, 175);
-}
-.input-side .input-div input{
-    
-    height: 10px;
-    
-    border:2px solid rgb(175, 175, 175);
-}
-.input-side .input-div select{
+    padding-right: 0px;
+  }
+  .quebraform .quebra-direita {
     width: 100%;
-    
-    margin-top: 30px;
-    padding: 11px;
-    border:2px solid rgb(175, 175, 175);
-}
-.input-side .input-div select .Foption{
-    color:rgb(175, 175, 175);
-}
-#parte1-Span{
-    margin-top:15px;
-    color:red;
-    display:none;
-}
-.parte2{
-    display:none;
-    
-}
-
-.parte2 #OPcuidador, #OPcliente{
-    width:20px;
-    height:20px;
-    margin:15px;
-    padding:10px;
-}
-
-.parte2 .OPradio{
-    display:flex;
+    padding-left: 0px;
+  }
+  .column-passos {
+    display: none;
+  }
+  .column-passos2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
     align-items: center;
-    margin-top:20px;
-    color:rgb(88, 88, 88);
-    font-size: 130%;
-}
-.clienteDiv,.cuidadorDiv{
- display: none;
-}
-.clienteDiv{
-    align-items: center;
-}
-.main-cliente{
-    display:flex;
-    align-items: center;
-    height: 270px;
-}
-
-.main-cliente img{
-    width: 160px;
-    margin-left: 20px;
-    height: 160px;
-    border-radius: 50%;
-    background: rgb(206, 206, 206);
-}
-.main-cliente h3{
-    color:rgb(88, 88, 88);
-}
-.main-cliente p{
-    color:rgb(110, 110, 110);
-}
-
-.fotoDiv{
-    width:200px;
-    
-}
-.txtDiv{
-    width:300px;  
+    display: flex;
+    background: none;
+  }
+  .column-passos2 .caixa2 {
+    width: 200px;
+    height: 60px;
+    background: #3dc9c4;
+    color: white;
+    font-size: 30px;
     display: flex;
     align-items: center;
-    word-wrap: break-word;
-    margin-left: 40px;
-}
-
-.txtDiv #fotoArquivo{
-    width: 300px;
-    height: 26px;
-    padding: 0;
-    border:none;
-}
-.txtDiv p{
-    
-    padding-top: 10px;
-    padding-bottom: 0px;
-
-}
-.cuidador-foto-div{
-    margin-top: 0px;
-    width: 100%;
-    height: 160px;
+    justify-content: center;
+    background: #3dc9c4;
+    border-radius: 6px;
+  }
+  .column-passos2 .linha2 {
+    width: 80%;
+    height: 8px;
+    background: #b9b9b9;
+  }
+  .cadastro {
+    top: 12%;
+    width: 80%;
+    left: 10%;
+    right: 16%;
+  }
+  .pngLeft {
+    display: none;
+  }
+  .pngRight {
+    display: none;
+  }
+  .quebra-direitapp {
     display: flex;
-    align-items: center;
-    color:rgb(80, 80, 80);
-}
-.cuidador-foto-div ul{
-    list-style: none;
-    line-height: 25px;
-    margin-left: 30px;
+    justify-content: space-between;
+  }
 
+  .parte1 .quebra-direitapp .quebraInput {
+    width: 47%;
+  }
 }
-.confirmação-cliente-div{
+@media (max-width: 610px) {
+  .cadastro-form-div .cadastro-nav .cadastrar {
     margin-top: 15px;
-}
-.confirmação-cliente-div p{
-    color:red;
-    display:none;
-}
-#confirmação2{
-    color:red;
-    display:none;
-}
-
-.cuidador-foto-div img{
-    width: 120px;
-    min-width: 120px;
-    min-height: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgb(206, 206, 206);
-}
-.areaArquivo{
-    width: 100%;
-    height: 100px;
-    border: 3px dotted rgb(110, 110, 110);
-    border-radius: 8px;
-    color: rgb(110, 110, 110);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-.cuid-button{
-    padding:2px;
-    height: 30px;
-    border: 1px solid black;
-}
-.parte3{
-    display:none;
-}    
-
-.parte1 .quebraform{
-    width: 100%;  
-    display: flex;
-    padding-top:0px ;
-    
-
-}
-.parte3 h2{
-    margin-top:30px;
-    color:rgb(110, 110, 110);
-}
-.parte3 h3{
-    font-size: 110%;
-    color:rgb(110, 110, 110);
-}
-.parte3 p{
-    margin-top:10px;
-    color:rgb(153, 152, 152);
-}
-.parte3 .caixatxt{
-    margin-top:15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    width: 100%;
-    height:200px;
-    overflow:auto;
-}
-.parte3 .checkTermo-Div{
-    display:flex;
-    align-items: center;
-}
-.parte3 .checkTermo-Div label{
-    color:rgb(110, 110, 110)
-}
-#checkTermo{
-    
-    width: 20px;
-    height: 20px;
-    margin:15px 15px 15px 0px;
-    padding:10px;
-}
-
-.quebraform .quebra-esquerda{
-    width: 60%;
-    padding-right:15px ;
-    background: ;
-
-}
-.quebraform .quebra-direita{
-    width: 40%;
-    padding-left:15px ;
-}
-
-.AvisoCard{
-    position: absolute;
-    height:55%;
-    width:60%;
-    min-width:500px;
-    top: 53%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    
-    box-shadow: 0 0 1em rgb(214, 214, 214);
-}
-.AvisoCard p{
-    color:#575757;
-}
-.aviso-left{
-    height:100%;
-    width:30%;
-    min-width:200px;
-    background:;
-    box-shadow: 4px 0px 8px rgb(214, 214, 214);
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-
-}
-.aviso-left img{
-    width:150px;
-    height:150px;
-    border:3px solid rgb(146, 146, 146);
-    border-radius:50%;
-    margin-bottom:60px;
-}
-.aviso-info{
-    text-align: center;
-}
-.aviso-info h2{
-    color:#3DC9C4;
-}
-.aviso-right{
-    height:100%;
-    width:70%;
-    min-width:300px;
-    display:flex;
-    flex-direction: column;
-    padding-top:6%;
-    padding-bottom:6%;
-    padding-left: 5%;
-    padding-right: 5%;
-    text-align: center;
-    justify-content: space-around;
-    justify-items: center;
-    align-content: center;
-    background-color: rgb(253, 253, 253);
-}
-.aviso-right p{
-    font-size: 120%;
-}
-.aviso-right h2{    
-color: #474747;
-}
-.aviso-right h3{    
-color: #474747;
-}
-.aviso-right button{
-    font-size: 102%;
-    width:180px;
-    height:33px;
-    
-    color:white;
-    background:#3DC9C4;
-    border: none;
-   
-    
-}
-.social-links{
-    margin-top: px;
-}
-
-.social-links a{
-
-    display:inline-block;
-    height:40px;
-    width:40px;
-    background-color: #3DC9C4;
-    margin:0 10px 10px 0;
-    text-align:center;
-    line-height:40px;
-    border-radius: 50px;
-    color:white;
-    transition: all 0.5s ease;
-}
-.social-links a:hover{
-    color:white;
-    background-color: #00ffc8;
-}
-@media(max-width:1000px){
-    .aviso-right p{
-        font-size: 100%;
-    }
-}
-@media(max-width:990px){ 
-    .cadastro{
-        width:75%;
-        left: 8%;
-    right:22%;
-    }
-    
-   
-}
-@media(max-width:821px){
-    .cadastro-form-div .input-side .titulo{
-        display: block;
-    }
-    .cadastro-form-div .input-side .subtitulo {
-        padding-left: 0px;
-        COLOR: #8b8b8b;
-    }
-    .parte1 .quebraform{
-    width: 100%;  
+  }
+  .cadastro-form-div .cadastro-nav {
     display: block;
-    padding-top:0px ;
-    }
-    .quebraform .quebra-esquerda{
-    width: 100%;
-    padding-right:0px ;
-    }
-    .quebraform .quebra-direita{
-    width: 100%;
-    padding-left:0px;
-    }
-    .column-passos{
-        display: none;
-    }
-    .column-passos2{
-        margin-top: 20px;
-        margin-bottom: 10px;
-        width: 100%;
-        align-items: center;
-        display: flex;
-        background: none;
-    } 
-    .column-passos2 .caixa2{
-        width:200px;
-        height: 60px;
-        background: #3DC9C4;
-        color: white;
-        font-size: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #3DC9C4;
-        border-radius: 6px;
-    
-    } 
-    .column-passos2 .linha2{
-        width:80%;
-        height: 8px;
-        background:  #b9b9b9;
-    
-    } 
-    .cadastro{
-       top:12%;
-        width:80%;
-        left:10%;
-        right:16%;
-        
-     }
-     .pngLeft{
-        display: none;
-      
-     }
-     .pngRight{
-        display: none;
-      }
-      .quebra-direitapp{
-        display:flex;
-        justify-content: space-between;
-    }
-
-    .parte1 .quebra-direitapp .quebraInput{
-        width:47%;
-    }
-    
-}
-@media(max-width:610px){
-    .cadastro-form-div .cadastro-nav .cadastrar{
-        margin-top: 15px;
-       
-    }  
-    .cadastro-form-div .cadastro-nav{
-        display: block;
-       
-   }
-   .main-cliente{
-    display:flex;
+  }
+  .main-cliente {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 330px;
-}
-.main-cliente img{
+  }
+  .main-cliente img {
     width: 160px;
     margin-left: 0;
     height: 160px;
     border-radius: 50%;
     background: rgb(206, 206, 206);
-}
-.mm{
+  }
+  .mm {
     display: flex;
     flex-direction: column;
     justify-items: center;
     text-align: center;
-
-}
-.txtDiv{
+  }
+  .txtDiv {
     margin-left: 0;
     margin-top: 10px;
-}
-.txtDiv #fotoArquivo{
+  }
+  .txtDiv #fotoArquivo {
     margin-top: 30px;
+  }
 }
+@media (max-width: 420px) {
+  .parte3 .caixatxt {
+    height: 300px;
+  }
+  .parte3 label {
+    font-size: 95%;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 150%;
+  }
+  .subtitulo {
+    font-size: 90%;
+  }
+  .cadastro-nav {
+    margin-top: 0;
+  }
+  .cadastro-nav button {
+    width: 120px;
+    height: 40px;
 
-}
-@media(max-width:517px){
-    .AvisoCard{
-        display: block;
-        width: 80%;
-        height: auto;
-        border-radius: 15px;
-        min-width: auto;
-        box-shadow: 0 0 1em rgb(214, 214, 214);
-        top: 54%;
-    }
-    .aviso-left{
-        height: 250px;
-        width:100%;
-        min-width:200px;
-        box-shadow: none;
-        
-        display:flex;
-        flex-direction: auto;
-        align-items: center;
-        justify-content: space-around;
-        z-index: 0;
-    
-    }
-    .aviso-left img{
-        min-width: 150px ;
-        min-height: 150px ;
-        margin-bottom:0px;
-        margin-top:10px;
-     }
-    .aviso-right{
-        height:auto ;
-        width:100%;
-        justify-content: space-around;
-        min-width: auto;
-        background: none;
-    }
-    .aviso-right p{
-        margin-top: 20px;
-    }
-    .aviso-right h3{
-        margin-top: 20px;
-    }
-    .social-links{
-        margin-top: 20px;
-    }
-}
-@media(max-width:420px){
-    .parte3 .caixatxt{
-        height:300px;
-    }
-    .parte3 label{
-        font-size: 95%;
-    }
-}
-@media(max-width:400px){
-    h1{
-        font-size:150%;
-    }
-    .subtitulo{
-        font-size:90%;
-    }
-    .cadastro-nav{
-        margin-top:0;
-    }
-    .cadastro-nav button{
-        width:120px;
-        height: 40px;
-        
-        font-size: 16px;
-    }
-    .cadastro-nav .NextBackdiv button{
-        width:120px;
-        height: 40px;
-        
-        font-size: 14px;
-    }
-    .cadastro-nav .NextBackdiv button:not(:first-child){
-        font-size: 16px;
-    }
-    .input-side .input-div{
-        width:100%;
-    }
-    .input-side .input-div input{
-        width: 100%;
-        height: 10px;
-        margin-top: 10px;
-        border:2px solid rgb(175, 175, 175);
-    }
-    .column-passos2{
-        margin-top: 13px;
-        margin-bottom: 3px;
-       
-    } 
-    .column-passos2 .caixa2{
-        width:180px;
-        height: 45px;
-        background: #3DC9C4;
-        color: white;
-        font-size: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #3DC9C4;
-        border-radius: 6px;
-    
-    } 
+    font-size: 16px;
+  }
+  .cadastro-nav .NextBackdiv button {
+    width: 120px;
+    height: 40px;
 
-
-    
+    font-size: 14px;
+  }
+  .cadastro-nav .NextBackdiv button:not(:first-child) {
+    font-size: 16px;
+  }
+  .input-side .input-div {
+    width: 100%;
+  }
+  .input-side .input-div input {
+    width: 100%;
+    height: 10px;
+    margin-top: 10px;
+    border: 2px solid rgb(175, 175, 175);
+  }
+  .column-passos2 {
+    margin-top: 13px;
+    margin-bottom: 3px;
+  }
+  .column-passos2 .caixa2 {
+    width: 180px;
+    height: 45px;
+    background: #3dc9c4;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3dc9c4;
+    border-radius: 6px;
+  }
 }

@@ -2,6 +2,7 @@
 require_once("../Model/model.php");
 $generos = $DAO->verGeneros();
 $cidades = $DAO->verCidades();
+$tiposUsuario = $DAO->verTiposUsuario();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -74,7 +75,7 @@ $cidades = $DAO->verCidades();
                     <input type="password" placeholder="Confirmar senha" id="senhaConfirmUsuario" name="confirmSenha" />
                   </div>
                   <div class="quebra-direita">
-                    <input type="text" placeholder="Numero do RG (Registro Geral)" id="rgUsuario" minlength="12" maxlength="12" name="rg" />
+                    <input type="text" placeholder="Numero do RG (Registro Geral)" id="rgUsuario" maxlength="12" name="rg" />
                     <div class="quebra-direitapp">
                       <select placeholder="Gênero" class="quebraInput" name="genero" id="generoUsuario">
                         <?php
@@ -93,16 +94,16 @@ $cidades = $DAO->verCidades();
                     </div>
                   </div>
                 </div>
-                <h3 id="parte1-Span">
-                  Preencha todos os campos para passar para próxima etapa
-                </h3>
+
               </div>
               <div class="parte2">
                 <div class="OPradio">
-                  <input onclick="OPcl()" type="radio" id="OPcliente" name="tipoUsuario" value="Cliente" />
-                    <label for="OPcliente">Cliente</label><br />
-                  <input onclick="OPcu()" type="radio" id="OPcuidador" name="tipoUsuario" value="Profissional" />
-                    <label for="OPcuidador">Cuidador</label><br />
+                  <?php
+                  echo '<input onclick="OPcl()" type="radio"id="OPcliente" name="tipoUsuario" value="' . $tiposUsuario[0]['DS_TIPO_USUARIO'] . '"/>
+                  <label for="OPcliente">' . $tiposUsuario[0]['DS_TIPO_USUARIO'] . '</label>
+                  <input onclick="OPcu()" type="radio" id="OPcuidador" name="tipoUsuario" value="' . $tiposUsuario[1]['DS_TIPO_USUARIO'] . '" />
+                  <label for="OPcuidador">' . $tiposUsuario[1]['DS_TIPO_USUARIO'] . '</label><br />';
+                  ?>
                 </div>
                 <div class="clienteDiv">
                   <div class="main-cliente">
@@ -116,7 +117,7 @@ $cidades = $DAO->verCidades();
                         </p>
                         <div class="confirmação-cliente-div">
                           <label class="cuid-button" for="fotoArquivo">Selecionar arquivo</label>
-                          <p id="confirmação">Nenhum aselecionado</p>
+                          <p id="confirmação">Nenhum arquivo selecionado</p>
                         </div>
                         <input type="file" name="image" class="custom-file-input" id="fotoArquivo" style="display: none" />
                       </div>
@@ -229,6 +230,9 @@ $cidades = $DAO->verCidades();
                   <input type="checkbox" id="checkTermo" />
                   <label for="checkTermo">Li e aceito os Termos de uso do CarerYou</label>
                 </div>
+                <h3 id="parte1-Span">
+                  Preencha todos os campos para passar para próxima etapa
+                </h3>
               </div>
 
               <input type="submit" id="submit" style="display: none" />
@@ -250,6 +254,7 @@ $cidades = $DAO->verCidades();
     <div class="pngRight"><img src="assets/img/cadastro-rightpng.png" /></div>
   </div>
   <script src="scripts/cadastro.js"></script>
+  <script src="../Controller/ajax/cadastrarUsuario.js"></script>
 </body>
 
 </html>

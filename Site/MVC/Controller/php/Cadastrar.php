@@ -1,47 +1,52 @@
 <?php
 require_once("../../Model/model.php");
-if (isset($_POST['nome'])) {
+if (isset($_POST['tipoUsuario'])) {
     $nome = (string)addslashes($_POST['nome']);
     $email = (string)addslashes($_POST['email']);
     $senha = (string)addslashes($_POST['senha']);
-    $confirmaSenha = (string)addslashes($_POST['confirmSenha']);
+    $confirmacaoSenha = (string)addslashes($_POST['confirmSenha']);
     $rg = (string)addslashes($_POST['rg']);
     $genero = (string)addslashes($_POST['genero']);
-    $regiao = (string)addslashes($_POST['regiao']);
+    $cidade = (string)addslashes($_POST['regiao']);
     $tipoUsuario = (string)addslashes($_POST['tipoUsuario']);
-    $image = $_FILES['image'];
+    $fotoPerfil = $_FILES['image'];
     $certificado = $_FILES['certificado'];
-    //echo var_dump($certificado);
-    //echo "<br>" . var_dump($image);
-    if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmaSenha) && !empty($rg)  && !empty($genero) && !empty($regiao) && !empty($tipoUsuario) && !empty($image['name']) && !empty($certificado)) {
-        if ($tipoUsuario === "Profissional" && $certificado['name'] === "") {
-            echo "Insira o arquivo de certificação profissional";
-        } else {
-            if ($senha === $confirmaSenha) {
-                if (strlen($senha) >= 8) {
+    if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmacaoSenha) && !empty($rg) && !empty($genero) && !empty($cidade) && !empty($tipoUsuario) && !empty($fotoPerfil['name'])) {
+        if (strlen($rg) === 12) {
+            if ($senha === $confirmacaoSenha) {
+                if (strlen($senha) > 7) {
                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        if (strlen($rg) === 12) {
+                        if (preg_match("/^[a-zA-Z-' ]*$/", $nome)) {
                             if ($tipoUsuario === "Cliente") {
-                                $arquivoFoto = new Imagem("foto", $image);
-                                $usuario = new Usuario($nome, $email, $senha, $rg, $genero, $regiao, $tipoUsuario, $arquivoFoto);
-                                $DAO->cadastrarUsuario($usuario);
+                                $foto = new Imagem($fotoPerfil);
+                                $u = new Usuario($nome, $email, $senha, $rg, $genero, $cidade, $tipoUsuario, $foto);
+                                $response = $DAO->cadastrarUsuario($u);
+                                if ($response === true) {
+                                    echo "Usuario cadastrado com sucesso";
+                                } else {
+                                    echo $response;
+                                }
                             } else if ($tipoUsuario === "Profissional") {
-                                //Fazer forma de cadastro de usuario
+                                //Fazer cadastro do tipo cuidador
                             }
                         } else {
-                            echo "Digite todos os numeros do seu RG";
+                            echo "Nome inválido";
                         }
                     } else {
                         echo "E-mail inválido";
                     }
                 } else {
-                    echo "A senha precisa conter oito caracteres";
+                    echo "A senha deve conter 8 caracteres";
                 }
             } else {
                 echo "As senhas precisam ser iguais";
             }
+        } else {
+            echo "Insira seu RG completo";
         }
     } else {
         echo "Preencha todos os campos";
     }
+} else {
+    echo "Preencha todos os campos";
 }

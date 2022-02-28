@@ -22,7 +22,7 @@ class Conexao
 
 abstract class Arquivo
 {
-    public function __construct(protected string $tipo, protected array $dados)
+    public function __construct(protected array $dados)
     {
     }
 
@@ -84,7 +84,7 @@ class Usuario
 
     public function getEmail(): string
     {
-        return $this->nome;
+        return $this->email;
     }
 
     public function getRG(): string
@@ -135,6 +135,12 @@ class UsuarioDAO
         $this->connection = Conexao::getConnection();
     }
 
+    public function verTiposUsuario(): array
+    {
+        $sql = $this->connection->query("SELECT * FROM TB_TIPO_USUARIO WHERE DS_TIPO_USUARIO !='Admin'");
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function verGeneros(): array
     {
         $sql = $this->connection->query("SELECT * FROM TB_GENERO_USUARIO");
@@ -147,7 +153,7 @@ class UsuarioDAO
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function cadastrarUsuario(Usuario $u)
+    public function cadastrarUsuario(Usuario $u): string | bool
     {
         $sql = $this->connection->prepare("SELECT ID_USUARIO FROM TB_USUARIO WHERE DS_EMAIL = :EM");
         $sql->bindValue(":EM", $u->getEmail());
@@ -156,7 +162,8 @@ class UsuarioDAO
         if ($res === false) {
             $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID)");
             $imgName = $u->getArquivoFoto();
-            if ($imgName->uploadArquivo()) {
+            $upload = $imgName->uploadArquivo();
+            if ($upload === true) {
                 $imgName = $imgName->getNomeArquivo();
                 $stmt->bindValue(":NM", $u->getNome());
                 $stmt->bindValue(":EM", $u->getEmail());
@@ -168,8 +175,12 @@ class UsuarioDAO
                 $stmt->bindValue(":CID", $u->getCidade());
                 $stmt->execute();
                 $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                echo var_dump($stmt);
+                return true;
+            } else {
+                return $upload;
             }
+        } else {
+            return "O E-mail ja esta cadastrado";
         }
     }
 }
