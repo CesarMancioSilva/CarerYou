@@ -201,6 +201,7 @@ const AvisoCard = document.querySelector("AvisoCard");
 function Endcadastrar(){
     if(parte2.querySelector('#OPcuidador').checked){
         cadastrar.style.display="none";
+        cadastrar.style.cursor="pointer";
         AvisoCard.styl.display="flex";
 
     }

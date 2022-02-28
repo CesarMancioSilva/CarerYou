@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
+    <link rel="stylesheet" href="assets/css/Nav-scadastro.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <input id="hamburger"type="checkbox" style="display:none">
+            <label for="hamburger">
+                <div class="hamburger"></div>
+            </label>
+            
+            <a href="home.php"><img id="logo-monitor"src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/logo.png?v=1645195527997"></a>
+            <ul>
+                
+                <li href="#"><a href="#">ASILOS/CASAS DE REPOUSO</a></li>
+                <li><a href="#">CUIDADORES</a></li>
+                <li class="nav-menu"><a href="#">SOBRE NÓS</a></li>
+                <li class="nav-menu"><a href="#">CONTATE-NOS</a></li>
+                <li class="nav-menu"><a href="#">FAQ</a></li>
+                
+                
+                
+              
+            </ul>
+            <a  href="login.html"><img id="icon-entrar"src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/login.png?v=1645195535033"></a>
+            
+            <a class="buttons-lc" href="login.php"><button id="nav-entrar">LOGIN</button></a>
+            <a class="buttons-lc" href="cadastro.php"><button id="nav-cadastro">CADASTRO</button></a>
+            
+
+        </nav></header>
+        <div class="content">
+            <div class="pngLeft"><img src="assets/img/cadastro-leftpng.png"></div>
+            <div class="cadastro">
+                <div class="column-passos">
+                    <div class="caixa" id="caixa1">1</div>
+                    <div class="linha"></div>
+                    <div class="caixa" id="caixa2">2</div>
+                    <div class="linha"></div>
+                    <div class="caixa" id="caixa3">3</div>
+                </div>
+
+                <div class="cadastro-form-div">
+
+                    <div class="input-side">
+                        <div class="titulo">
+                            <h1>CRIE SUA CONTA !</h1>
+                            <div class="subtitulo">Ja possui uma conta? <a href="#">Conecte-se</a></div>
+                        </div>
+                        <div class="input-div">
+
+                            <div class="column-passos2">
+                                    <div class="caixa2" id="caixa1mb">1</div>
+                                    <div class="linha2"></div>
+                                    <div class="caixa2" id="caixa2mb">2</div>
+                                    <div class="linha2"></div>
+                                    <div class="caixa2" id="caixa3mb">3</div>
+                            </div>
+
+                            <form>
+                                <div class="parte1">
+                                    <input class="nome"type="text" placeholder="Nome de usuario" id="nomeUsuario">
+                                    <div class="quebraform">
+                                        <div class="quebra-esquerda">
+                                            <input type="email" placeholder="Email" id="emailUsuario">
+                                            <input type="password" placeholder="Senha" id="senhaUsuario">
+                                            <input type="password" placeholder="Confirmar senha"id="senhaConfirmUsuario">
+                                        </div>
+                                        <div class="quebra-direita">
+                                            <input type="text" placeholder="Numero do RG (Registro Geral)" id="rgUsuario">
+                                            <div class="quebra-direitapp">
+                                                    <select class="quebraInput"name="cars" id="generoUsuario">
+                                                            <option class="Foption"value="" disabled selected>Genero</option>
+                                                            <option value="volvo">Masculino</option>
+                                                            <option value="saab">Feminino</option>
+                                                            <option value="saab">Prefiro não informar</option>
+                                                            
+                                                    </select>
+                                                    <select placeholder="Região"class="quebraInput"name="Região" id="regiãoUsuario" >
+                                                            <option class="Foption"value="" disabled selected>Região</option>
+                                                            <option value="São Paulo">São Paulo</option>
+                                                            <option value="Santos">Santos</option>
+                                                    </select>
+                                                
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <h3 id="parte1-Span">Preencha todos os campos para passar para próxima etapa</h3>
+                                    
+                                </div>
+                                <div class="parte2">
+
+                                    <div class="OPradio">
+                                        <input onclick="OPcl()"type="radio" id="OPcliente" name="radio" value="cliente" >
+                                        <label for="OPcliente">Cliente</label><br>
+                                        <input onclick="OPcu()"type="radio" id="OPcuidador" name="radio" value="cuidador">
+                                        <label for="OPcuidador">Cuidador</label><br>
+                                        
+                                    </div>
+                                    <div class="clienteDiv">
+                                        <div class="main-cliente">
+                                            <img class="preview">
+                                            <div class="txtDiv">
+                                                <div class="mm">
+                                                    <h3>Adicione uma foto de perfil</h3>
+                                                    <p>Escola uma foto sua ou de seu familiar para idntificação na plataforma.</p>
+                                                    <div class="confirmação-cliente-div">
+                                                        <label class="cuid-button" for="fotoArquivo">Selecionar arquivo</label>
+                                                        <p id="confirmação">Nenhum aselecionado</p>
+                                                    </div>
+                                                    <input type="file" class="custom-file-input" id="fotoArquivo" style="display: none;">
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="cuidadorDiv">
+                                        <div class="cuidador-foto-div">
+                                            <img class="preview2">
+                                            <ul>
+                                                <li><h3>Adicione uma foto de perfil</h3></li>
+                                                <li>
+                                                    <label class="cuid-button" for="fotoArquivo">
+                                                        Escolher arquivo
+                                                    </label>
+                                                </li>
+                                                <li id="confirmação2">Nenhum arquivo selecionado</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <label for="certif-Input">
+                                            <div class="areaArquivo"><div id="file-upload-filename">Clique para adicionar um arquivo pdf certificando a atuação na area</div></div>
+                                        </label>
+                    
+                                         <input type="file" id="certif-Input" onchange="verificaExtensao(this)"style="display: none;"/>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="parte3">
+                                   <h2>Privacidade e Termos</h2>
+                                   <div class="caixatxt">
+                                        <h3><b>SUBTITULO</b></h3>
+                                        <p>Lorem ipsum quam est nisl id tempus id habitasse, primis phasellus massa egestas non conubia. aliquam vitae in sed dapibus aliquet luctus nam tempus, ornare sapien sit commodo per in ullamcorper ornare eros, purus inceptos egestas turpis duis nam pretium. mauris enim porttitor lorem pulvinar ad erat urna velit tempus orci, urna ad aenean pulvinar elit a donec nunc. auctor himenaeos mi venenatis vestibulum consequat praesent curabitur eget, integer massa himenaeos risus mi purus et libero litora, erat vel vehicula nisl aptent class suspendisse. non inceptos euismod aenean erat in pulvinar malesuada, turpis torquent quis nec metus congue gravida nam, nullam nunc maecenas porta elit tempus.  non inceptos euismod aenean erat in pulvinar malesuada, turpis torquent quis nec metus congue gravida nam, nullam nunc maecenas porta elit tempus. </p>
+                                        <br>
+                                        <h3><b>SUBTITULO</b></h3>
+                                        <p>Varius cubilia eros tellus adipiscing nunc aliquet leo sapien gravida, hendrerit metus ac quis tempus vivamus dictumst cras magna, dapibus aenean nulla ac neque rhoncus maecenas fames. adipiscing potenti bibendum nullam bibendum nunc lacinia dapibus ultrices fringilla mauris, sagittis sapien ullamcorper malesuada laoreet aenean ornare ut dapibus vehicula, diam ipsum condimentum erat nisl fringilla velit ultrices amet. nam et morbi tincidunt neque odio sapien fusce magna nisl gravida, posuere nec senectus aenean hendrerit libero curae lacus. non mattis tempus cubilia sagittis neque inceptos etiam, ultrices a felis mi bibendum tortor enim fames, tellus tincidunt semper ornare cursus maecenas. </p>
+                                        <br>
+                                        <h3><b>SUBTITULO</b></h3>
+                                        <p>Varius cubilia eros tellus adipiscing nunc aliquet leo sapien gravida, hendrerit metus ac quis tempus vivamus dictumst cras magna, dapibus aenean nulla ac neque rhoncus maecenas fames. adipiscing potenti bibendum nullam bibendum nunc lacinia dapibus ultrices fringilla mauris, sagittis sapien ullamcorper malesuada laoreet aenean ornare ut dapibus vehicula, diam ipsum condimentum erat nisl fringilla velit ultrices amet. nam et morbi tincidunt neque odio sapien fusce magna nisl gravida, posuere nec senectus aenean hendrerit libero curae lacus. non mattis tempus cubilia sagittis neque inceptos etiam, ultrices a felis mi bibendum tortor enim fames, tellus tincidunt semper ornare cursus maecenas. </p>
+                                        <br>
+                                        <h3><b>SUBTITULO</b></h3>
+                                        <p>Varius cubilia eros tellus adipiscing nunc aliquet leo sapien gravida, hendrerit metus ac quis tempus vivamus dictumst cras magna, dapibus aenean nulla ac neque rhoncus maecenas fames. adipiscing potenti bibendum nullam bibendum nunc lacinia dapibus ultrices fringilla mauris, sagittis sapien ullamcorper malesuada laoreet aenean ornare ut dapibus vehicula, diam ipsum condimentum erat nisl fringilla velit ultrices amet. nam et morbi tincidunt neque odio sapien fusce magna nisl gravida, posuere nec senectus aenean hendrerit libero curae lacus. non mattis tempus cubilia sagittis neque inceptos etiam, ultrices a felis mi bibendum tortor enim fames, tellus tincidunt semper ornare cursus maecenas. </p>
+                                        
+                                   </div>
+                                   <div class="checkTermo-Div">
+                                    <input type="checkbox" id="checkTermo"value="I am Agree!">
+                                    <label for="checkTermo">Li e aceito os Termos de uso do CarerYou</label>
+                                    </div>
+                                </div>
+                                
+    
+                                
+                            <input type="submit" id="submit" style="display:none;">
+                            </form>
+                        </div>
+                       
+                    </div>
+
+                    <div class="cadastro-nav">
+                        <div class="NextBackdiv">
+                            <button class="btnVoltar" onclick="voltar()">VOLTAR</button>
+                            <button class="btnContinuar"onclick="proximo()">CONTINUAR</button>
+                        </div>
+                        <label onclick="Endcadastrar" for="submit"class="cadastrar">CADASTRAR</label>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="pngRight"><img src="assets/img/cadastro-rightpng.png"></div>
+        </div>
+        <div class="AvisoCard">
+            <div class="aviso-left">
+                <img class="preview">
+                <div class="aviso-info">
+                    <h2 class="nomInfo">Talita Ouro</h2>
+                    <p>Cuidador(a) CarerYou</p>
+
+                </div>
+
+            </div>
+            <div class="aviso-right">
+                <h2>Validação de cadastro</h2>
+                <p>Agradecemos sua escolha de fazer parte do CarerYou com seus serviços. No momento seu cadastro está em analise e logo será atualizado no e-mail inserido:</p>
+                <h3>talitapotuda@gmail.com</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+        </div>
+        <script src="scripts/cadastro.js"></script>
+    
+</body>
+</html>

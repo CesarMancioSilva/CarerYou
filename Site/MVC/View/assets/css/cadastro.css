@@ -51,7 +51,7 @@ nav{
     right:16%;
     position:absolute;
    
-    display:flex; 
+    display:none; 
     top:20%;
  }
  .column-passos{
@@ -145,6 +145,7 @@ nav{
     height: 50px;
     background-color: #b9b9b9;
     color:white;
+    cursor:pointer;
     border:none;
     font-size: 20px;
     display: none;
@@ -389,30 +390,38 @@ nav{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    display: none;
-    border:1px solid black;
+    display: flex;
+    
+    box-shadow: 0 0 1em rgb(214, 214, 214);
+}
+.AvisoCard p{
+    color:#575757;
 }
 .aviso-left{
     height:100%;
     width:30%;
     min-width:200px;
     background:;
-    border: 1px solid;
+    box-shadow: 4px 0px 8px rgb(214, 214, 214);
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 100;
 
 }
 .aviso-left img{
     width:150px;
     height:150px;
-    border:3px solid black;
+    border:3px solid rgb(146, 146, 146);
     border-radius:50%;
     margin-bottom:60px;
 }
 .aviso-info{
     text-align: center;
+}
+.aviso-info h2{
+    color:#3DC9C4;
 }
 .aviso-right{
     height:100%;
@@ -426,13 +435,55 @@ nav{
     padding-right: 5%;
     text-align: center;
     justify-content: space-around;
-
+    justify-items: center;
+    align-content: center;
+    background-color: rgb(253, 253, 253);
+}
+.aviso-right p{
+    font-size: 120%;
+}
+.aviso-right h2{    
+color: #474747;
+}
+.aviso-right h3{    
+color: #474747;
 }
 .aviso-right button{
-    width: 30%;
-    height: 10%;
-    margin-left: 35%;
+    font-size: 102%;
+    width:180px;
+    height:33px;
     
+    color:white;
+    background:#3DC9C4;
+    border: none;
+   
+    
+}
+.social-links{
+    margin-top: px;
+}
+
+.social-links a{
+
+    display:inline-block;
+    height:40px;
+    width:40px;
+    background-color: #3DC9C4;
+    margin:0 10px 10px 0;
+    text-align:center;
+    line-height:40px;
+    border-radius: 50px;
+    color:white;
+    transition: all 0.5s ease;
+}
+.social-links a:hover{
+    color:white;
+    background-color: #00ffc8;
+}
+@media(max-width:1000px){
+    .aviso-right p{
+        font-size: 100%;
+    }
 }
 @media(max-width:990px){ 
     .cadastro{
@@ -556,6 +607,52 @@ nav{
     margin-top: 30px;
 }
 
+}
+@media(max-width:517px){
+    .AvisoCard{
+        display: block;
+        width: 80%;
+        height: auto;
+        border-radius: 15px;
+        min-width: auto;
+        box-shadow: 0 0 1em rgb(214, 214, 214);
+        top: 54%;
+    }
+    .aviso-left{
+        height: 250px;
+        width:100%;
+        min-width:200px;
+        box-shadow: none;
+        
+        display:flex;
+        flex-direction: auto;
+        align-items: center;
+        justify-content: space-around;
+        z-index: 0;
+    
+    }
+    .aviso-left img{
+        min-width: 150px ;
+        min-height: 150px ;
+        margin-bottom:0px;
+        margin-top:10px;
+     }
+    .aviso-right{
+        height:auto ;
+        width:100%;
+        justify-content: space-around;
+        min-width: auto;
+        background: none;
+    }
+    .aviso-right p{
+        margin-top: 20px;
+    }
+    .aviso-right h3{
+        margin-top: 20px;
+    }
+    .social-links{
+        margin-top: 20px;
+    }
 }
 @media(max-width:420px){
     .parte3 .caixatxt{
