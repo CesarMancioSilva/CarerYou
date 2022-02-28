@@ -186,8 +186,10 @@ function verificaExtensao($input) {
     } 
   }
 
+
+
   document.getElementById('checkTermo').onclick = function() {
-    // access properties using this keyword
+    //access properties using this keyword
     if ( this.checked ) {
         // Returns true if checked
         cadastrar.style.backgroundColor = "#3DC9C4";
