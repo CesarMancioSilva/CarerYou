@@ -11,16 +11,29 @@ if (isset($_POST['nome'])) {
     $tipoUsuario = (string)addslashes($_POST['tipoUsuario']);
     $image = $_FILES['image'];
     $certificado = $_FILES['certificado'];
-    if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmaSenha) && !empty($rg)  && !empty($genero) && !empty($regiao) && !empty($tipoUsuario) && !empty($image) && !empty($certificado)) {
-        echo "Tudo aqui<br>";
+    //echo var_dump($certificado);
+    //echo "<br>" . var_dump($image);
+    if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmaSenha) && !empty($rg)  && !empty($genero) && !empty($regiao) && !empty($tipoUsuario) && !empty($image['name']) && !empty($certificado)) {
         if ($tipoUsuario === "Profissional" && $certificado['name'] === "") {
             echo "Insira o arquivo de certificação profissional";
         } else {
-            echo "Usuario ok<br>";
             if ($senha === $confirmaSenha) {
-                echo "Senhas iguais<br>";
                 if (strlen($senha) >= 8) {
-                    echo "Senha válida";
+                    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        if (strlen($rg) === 12) {
+                            if ($tipoUsuario === "Cliente") {
+                                $arquivoFoto = new Imagem("foto", $image);
+                                $usuario = new Usuario($nome, $email, $senha, $rg, $genero, $regiao, $tipoUsuario, $arquivoFoto);
+                                $DAO->cadastrarUsuario($usuario);
+                            } else if ($tipoUsuario === "Profissional") {
+                                //Fazer forma de cadastro de usuario
+                            }
+                        } else {
+                            echo "Digite todos os numeros do seu RG";
+                        }
+                    } else {
+                        echo "E-mail inválido";
+                    }
                 } else {
                     echo "A senha precisa conter oito caracteres";
                 }

@@ -99,9 +99,9 @@ $cidades = $DAO->verCidades();
               </div>
               <div class="parte2">
                 <div class="OPradio">
-                  <input onclick="OPcl()" type="radio" id="OPcliente" name="tipoUsuario" value="cliente" />
+                  <input onclick="OPcl()" type="radio" id="OPcliente" name="tipoUsuario" value="Cliente" />
                     <label for="OPcliente">Cliente</label><br />
-                  <input onclick="OPcu()" type="radio" id="OPcuidador" name="tipoUsuario" value="cuidador" />
+                  <input onclick="OPcu()" type="radio" id="OPcuidador" name="tipoUsuario" value="Profissional" />
                     <label for="OPcuidador">Cuidador</label><br />
                 </div>
                 <div class="clienteDiv">

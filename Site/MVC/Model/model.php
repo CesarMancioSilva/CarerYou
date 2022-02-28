@@ -20,10 +20,110 @@ class Conexao
     }
 }
 
+abstract class Arquivo
+{
+    public function __construct(protected string $tipo, protected array $dados)
+    {
+    }
+
+    public abstract function uploadArquivo();
+
+    public function getNomeArquivo(): string
+    {
+        return time() . $this->dados['name'];
+    }
+}
+
+class PDF extends Arquivo
+{
+    public function uploadArquivo(): string | bool
+    {
+        $pdfExplode = explode('.', $this->dados['name']);
+        $pdfExt = end($pdfExplode);
+        if (in_array($pdfExt, ['pdf'])) {
+            if (move_uploaded_file($this->dados['tmp_name'], "../../View/assets/img/" . time() . $this->dados['name'])) {
+                return true;
+            } else {
+                return "Erro ao fazer upload do arquivo";
+            }
+        } else {
+            "Os arquivos precisam ser do tipo pdf";
+        }
+    }
+}
+
+class Imagem extends Arquivo
+{
+    public function uploadArquivo(): string | bool
+    {
+        $imgExplod = explode('.', $this->dados['name']);
+        $imgExt = end($imgExplod);
+        if (in_array($imgExt, ['png', 'jpg', 'jpeg'])) {
+            if (move_uploaded_file($this->dados['tmp_name'], "../../View/assets/img/" . time() . $this->dados['name'])) {
+                return true;
+            } else {
+                return "Erro ao fazer upload da imagem";
+            }
+        } else {
+            return "As imagens precisam ter a extensão png, jpg ou jpeg";
+        }
+    }
+}
+
+
 class Usuario
 {
-    public function __construct(private string $nome, private string $email, private string $senha, private string $rg, private string $genero, private string $cidade, private string $tipoUsuario)
+    public function __construct(protected string $nome, protected string $email, protected string $senha, protected string $rg, protected string $genero, protected string $cidade, protected string $tipoUsuario, protected Imagem $foto)
     {
+    }
+
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->nome;
+    }
+
+    public function getRG(): string
+    {
+        return $this->rg;
+    }
+
+    public function getGenero(): string
+    {
+        return $this->genero;
+    }
+
+    public function getArquivoFoto(): Arquivo
+    {
+        return $this->foto;
+    }
+
+    public function getCidade(): string
+    {
+        return $this->cidade;
+    }
+
+    public function getTipo(): string
+    {
+        return $this->tipoUsuario;
+    }
+    public function getSha1Senha(): string
+    {
+        return sha1($this->senha);
+    }
+}
+
+class Profissional extends Usuario
+{
+    private PDF $certificado;
+
+    public function setCertificado(PDF $arq)
+    {
+        $this->certificado = $arq;
     }
 }
 
@@ -45,6 +145,32 @@ class UsuarioDAO
     {
         $sql = $this->connection->query("SELECT * FROM TB_CIDADE");
         return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function cadastrarUsuario(Usuario $u)
+    {
+        $sql = $this->connection->prepare("SELECT ID_USUARIO FROM TB_USUARIO WHERE DS_EMAIL = :EM");
+        $sql->bindValue(":EM", $u->getEmail());
+        $sql->execute();
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
+        if ($res === false) {
+            $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID)");
+            $imgName = $u->getArquivoFoto();
+            if ($imgName->uploadArquivo()) {
+                $imgName = $imgName->getNomeArquivo();
+                $stmt->bindValue(":NM", $u->getNome());
+                $stmt->bindValue(":EM", $u->getEmail());
+                $stmt->bindValue(":SN", $u->getSha1Senha());
+                $stmt->bindValue(":RG", $u->getRG());
+                $stmt->bindValue(":FT", $imgName);
+                $stmt->bindValue(":TP", $u->getTipo());
+                $stmt->bindValue(":GEN", $u->getGenero());
+                $stmt->bindValue(":CID", $u->getCidade());
+                $stmt->execute();
+                $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                echo var_dump($stmt);
+            }
+        }
     }
 }
 
