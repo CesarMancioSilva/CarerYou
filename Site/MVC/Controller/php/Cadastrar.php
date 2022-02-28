@@ -17,17 +17,21 @@ if (isset($_POST['tipoUsuario'])) {
                 if (strlen($senha) > 7) {
                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         if (preg_match("/^[a-zA-Z-' ]*$/", $nome)) {
+                            $foto = new Imagem($fotoPerfil);
                             if ($tipoUsuario === "Cliente") {
-                                $foto = new Imagem($fotoPerfil);
                                 $u = new Usuario($nome, $email, $senha, $rg, $genero, $cidade, $tipoUsuario, $foto);
+                                $response = $DAO->cadastrarUsuario($u);
+                            } else if ($tipoUsuario === "Profissional") {
+                                //Fazer cadastro do tipo cuidador
+                                $pdf = new PDF($certificado);
+                                $u = new Profissional($nome, $email, $senha, $rg, $genero, $cidade, $tipoUsuario, $foto);
+                                $u->setCertificado($pdf);
                                 $response = $DAO->cadastrarUsuario($u);
                                 if ($response === true) {
                                     echo "Usuario cadastrado com sucesso";
                                 } else {
                                     echo $response;
                                 }
-                            } else if ($tipoUsuario === "Profissional") {
-                                //Fazer cadastro do tipo cuidador
                             }
                         } else {
                             echo "Nome inválido";

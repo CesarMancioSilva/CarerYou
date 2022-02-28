@@ -32,40 +32,63 @@ abstract class Arquivo
     {
         return time() . $this->dados['name'];
     }
+
+    public abstract function getExtensao(): bool | string;
 }
 
 class PDF extends Arquivo
 {
-    public function uploadArquivo(): string | bool
+
+
+    public function getExtensao(): bool | string
     {
         $pdfExplode = explode('.', $this->dados['name']);
         $pdfExt = end($pdfExplode);
-        if (in_array($pdfExt, ['pdf'])) {
-            if (move_uploaded_file($this->dados['tmp_name'], "../../View/assets/img/" . time() . $this->dados['name'])) {
+        if ($pdfExt === "pdf") {
+            return true;
+        } else {
+            return "Os arquivos precisam ser do tipo PDF";
+        }
+    }
+
+    public function uploadArquivo(): string | bool
+    {
+        if ($this->getExtensao() === true) {
+            if (move_uploaded_file($this->dados['tmp_name'], "../../View/assets/archives/" . time() . $this->dados['name'])) {
                 return true;
             } else {
                 return "Erro ao fazer upload do arquivo";
             }
         } else {
-            "Os arquivos precisam ser do tipo pdf";
+            return $this->getExtensao();
         }
     }
 }
 
 class Imagem extends Arquivo
 {
-    public function uploadArquivo(): string | bool
+
+    public function getExtensao(): bool | string
     {
         $imgExplod = explode('.', $this->dados['name']);
         $imgExt = end($imgExplod);
         if (in_array($imgExt, ['png', 'jpg', 'jpeg'])) {
+            return true;
+        } else {
+            return "As imagens precisam ter a extensão jpg, png ou jpeg";
+        }
+    }
+
+    public function uploadArquivo(): string | bool
+    {
+        if ($this->getExtensao() === true) {
             if (move_uploaded_file($this->dados['tmp_name'], "../../View/assets/img/" . time() . $this->dados['name'])) {
                 return true;
             } else {
                 return "Erro ao fazer upload da imagem";
             }
         } else {
-            return "As imagens precisam ter a extensão png, jpg ou jpeg";
+            return $this->getExtensao();
         }
     }
 }
@@ -125,6 +148,11 @@ class Profissional extends Usuario
     {
         $this->certificado = $arq;
     }
+
+    public function getCertificado(): PDF
+    {
+        return $this->certificado;
+    }
 }
 
 class UsuarioDAO
@@ -153,31 +181,58 @@ class UsuarioDAO
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function cadastrarUsuario(Usuario $u): string | bool
+    public function cadastrarUsuario(Usuario | Profissional $u): string | bool
     {
         $sql = $this->connection->prepare("SELECT ID_USUARIO FROM TB_USUARIO WHERE DS_EMAIL = :EM");
         $sql->bindValue(":EM", $u->getEmail());
         $sql->execute();
         $res = $sql->fetch(PDO::FETCH_ASSOC);
         if ($res === false) {
-            $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID)");
-            $imgName = $u->getArquivoFoto();
-            $upload = $imgName->uploadArquivo();
-            if ($upload === true) {
-                $imgName = $imgName->getNomeArquivo();
-                $stmt->bindValue(":NM", $u->getNome());
-                $stmt->bindValue(":EM", $u->getEmail());
-                $stmt->bindValue(":SN", $u->getSha1Senha());
-                $stmt->bindValue(":RG", $u->getRG());
-                $stmt->bindValue(":FT", $imgName);
-                $stmt->bindValue(":TP", $u->getTipo());
-                $stmt->bindValue(":GEN", $u->getGenero());
-                $stmt->bindValue(":CID", $u->getCidade());
-                $stmt->execute();
-                $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                return true;
+            if (in_array($u->getTipo(), ["Admin", "Cliente"])) {
+                $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID, '')");
+                $imgName = $u->getArquivoFoto();
+                $upload = $imgName->uploadArquivo();
+                if ($upload === true) {
+                    $imgName = $imgName->getNomeArquivo();
+                    $stmt->bindValue(":NM", $u->getNome());
+                    $stmt->bindValue(":EM", $u->getEmail());
+                    $stmt->bindValue(":SN", $u->getSha1Senha());
+                    $stmt->bindValue(":RG", $u->getRG());
+                    $stmt->bindValue(":FT", $imgName);
+                    $stmt->bindValue(":TP", $u->getTipo());
+                    $stmt->bindValue(":GEN", $u->getGenero());
+                    $stmt->bindValue(":CID", $u->getCidade());
+                    $stmt->execute();
+                    return true;
+                } else {
+                    return $upload;
+                }
             } else {
-                return $upload;
+                $uploadPDF = $u->getCertificado();
+                $uploadFoto = $u->getArquivoFoto();
+
+                if ($uploadPDF->getExtensao() === true) {
+                    if ($uploadFoto->getExtensao() === true) {
+                        $uploadFoto->uploadArquivo();
+                        $uploadPDF->uploadArquivo();
+                        $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID, :ARQ)");
+                        $stmt->bindValue(":NM", $u->getNome());
+                        $stmt->bindValue(":EM", $u->getEmail());
+                        $stmt->bindValue(":SN", $u->getSha1Senha());
+                        $stmt->bindValue(":RG", $u->getRG());
+                        $stmt->bindValue(":FT", $uploadFoto->getNomeArquivo());
+                        $stmt->bindValue(":TP", $u->getTipo());
+                        $stmt->bindValue(":GEN", $u->getGenero());
+                        $stmt->bindValue(":CID", $u->getCidade());
+                        $stmt->bindValue(":ARQ", $uploadPDF->getNomeArquivo());
+                        $stmt->execute();
+                        return true;
+                    } else {
+                        return $uploadFoto->getExtensao();
+                    }
+                } else {
+                    return $uploadPDF->getExtensao();
+                }
             }
         } else {
             return "O E-mail ja esta cadastrado";

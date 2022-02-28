@@ -11,7 +11,9 @@ formCadastro.onsubmit = e => {
             console.log("DONE");
             if(xhr.status === 200){
                 var response = xhr.response;
-                if(response!==""){
+                if(response === "Usuario cadastrado com sucesso") {
+                    location.href = "login.php";
+                } else if(response!==""){
                     errorArea.style.display = "block";
                     errorArea.innerHTML = response;
                 } else {
