@@ -21,6 +21,11 @@ if (isset($_POST['tipoUsuario'])) {
                             if ($tipoUsuario === "Cliente") {
                                 $u = new Usuario($nome, $email, $senha, $rg, $genero, $cidade, $tipoUsuario, $foto);
                                 $response = $DAO->cadastrarUsuario($u);
+                                if ($response === true) {
+                                    echo "Usuario cadastrado com sucesso";
+                                } else {
+                                    echo $response;
+                                }
                             } else if ($tipoUsuario === "Profissional") {
                                 //Fazer cadastro do tipo cuidador
                                 $pdf = new PDF($certificado);

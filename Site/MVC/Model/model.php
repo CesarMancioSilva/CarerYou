@@ -82,7 +82,7 @@ class Imagem extends Arquivo
     public function uploadArquivo(): string | bool
     {
         if ($this->getExtensao() === true) {
-            if (move_uploaded_file($this->dados['tmp_name'], "../../View/assets/img/" . time() . $this->dados['name'])) {
+            if (move_uploaded_file($this->dados['tmp_name'], "../../View/assets/img/profile pic/" . time() . $this->dados['name'])) {
                 return true;
             } else {
                 return "Erro ao fazer upload da imagem";
@@ -187,55 +187,62 @@ class UsuarioDAO
         $sql->bindValue(":EM", $u->getEmail());
         $sql->execute();
         $res = $sql->fetch(PDO::FETCH_ASSOC);
+        //Caso não exista algum usuario com o mesmo email
         if ($res === false) {
-            if (in_array($u->getTipo(), ["Admin", "Cliente"])) {
-                $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID, '')");
-                $imgName = $u->getArquivoFoto();
-                $upload = $imgName->uploadArquivo();
-                if ($upload === true) {
-                    $imgName = $imgName->getNomeArquivo();
-                    $stmt->bindValue(":NM", $u->getNome());
-                    $stmt->bindValue(":EM", $u->getEmail());
-                    $stmt->bindValue(":SN", $u->getSha1Senha());
-                    $stmt->bindValue(":RG", $u->getRG());
-                    $stmt->bindValue(":FT", $imgName);
-                    $stmt->bindValue(":TP", $u->getTipo());
-                    $stmt->bindValue(":GEN", $u->getGenero());
-                    $stmt->bindValue(":CID", $u->getCidade());
+            //Cadastro para admin e cliente
+            $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID, :ARQ)");
+            $stmt->bindValue(":NM", $u->getNome());
+            $stmt->bindValue(":EM", $u->getEmail());
+            $stmt->bindValue(":SN", $u->getSha1Senha());
+            $stmt->bindValue(":RG", $u->getRG());
+            $stmt->bindValue(":TP", $u->getTipo());
+            $stmt->bindValue(":GEN", $u->getGenero());
+            $stmt->bindValue(":CID", $u->getCidade());
+            $img = $u->getArquivoFoto();
+            if ($u->getTipo() !== "Profissional") {
+                //Caso o upload da imgem tenha dado certo
+                if ($img->uploadArquivo() === true) {
+                    $stmt->bindValue(":FT", $img->getNomeArquivo());
+                    $stmt->bindValue(":ARQ", '');
                     $stmt->execute();
                     return true;
                 } else {
-                    return $upload;
+                    return $img->uploadArquivo();
                 }
-            } else {
-                $uploadPDF = $u->getCertificado();
-                $uploadFoto = $u->getArquivoFoto();
-
-                if ($uploadPDF->getExtensao() === true) {
-                    if ($uploadFoto->getExtensao() === true) {
-                        $uploadFoto->uploadArquivo();
-                        $uploadPDF->uploadArquivo();
-                        $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID, :ARQ)");
-                        $stmt->bindValue(":NM", $u->getNome());
-                        $stmt->bindValue(":EM", $u->getEmail());
-                        $stmt->bindValue(":SN", $u->getSha1Senha());
-                        $stmt->bindValue(":RG", $u->getRG());
-                        $stmt->bindValue(":FT", $uploadFoto->getNomeArquivo());
-                        $stmt->bindValue(":TP", $u->getTipo());
-                        $stmt->bindValue(":GEN", $u->getGenero());
-                        $stmt->bindValue(":CID", $u->getCidade());
-                        $stmt->bindValue(":ARQ", $uploadPDF->getNomeArquivo());
+            }
+            //Cadastro para Profissional
+            else {
+                $certificado = $u->getCertificado();
+                if ($certificado->getExtensao() === true) {
+                    if ($img->getExtensao() === true) {
+                        $img->uploadArquivo();
+                        $certificado->uploadArquivo();
+                        $stmt->bindValue(":FT", $certificado->getNomeArquivo());
+                        $stmt->bindValue(":ARQ", $certificado->getNomeArquivo());
                         $stmt->execute();
                         return true;
                     } else {
-                        return $uploadFoto->getExtensao();
+                        return $img->getExtensao();
                     }
                 } else {
-                    return $uploadPDF->getExtensao();
+                    return $certificado->getExtensao();
                 }
             }
-        } else {
+        }
+        //Se existir um usuario com o mesmo email
+        else {
             return "O E-mail ja esta cadastrado";
+        }
+    }
+
+    public function loginUsuario(string $email, string $senha): bool | array
+    {
+        $sql = $this->connection->query("CALL LOGIN_USUARIO('" . $email . "', '" . sha1($senha) . "')");
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
+        if (isset($res['ID_USUARIO'])) {
+            return $res;
+        } else {
+            return false;
         }
     }
 }

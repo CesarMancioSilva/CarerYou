@@ -9,7 +9,6 @@ $tiposUsuario = $DAO->verTiposUsuario();
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/cadastro.css" />
   <link rel="stylesheet" href="assets/css/Nav-scadastro.css" />
@@ -47,7 +46,6 @@ $tiposUsuario = $DAO->verTiposUsuario();
         <div class="linha"></div>
         <div class="caixa" id="caixa3">3</div>
       </div>
-
       <div class="cadastro-form-div">
         <div class="input-side">
           <div class="titulo">
@@ -64,7 +62,6 @@ $tiposUsuario = $DAO->verTiposUsuario();
               <div class="linha2"></div>
               <div class="caixa2" id="caixa3mb">3</div>
             </div>
-
             <form method="POST" action="../Controller/php/Cadastrar.php" enctype="multipart/form-data">
               <div class=" parte1">
                 <input class="nome" type="text" placeholder="Nome de usuario" id="nomeUsuario" name="nome" />
@@ -94,7 +91,6 @@ $tiposUsuario = $DAO->verTiposUsuario();
                     </div>
                   </div>
                 </div>
-
               </div>
               <div class="parte2">
                 <div class="OPradio">
@@ -147,11 +143,9 @@ $tiposUsuario = $DAO->verTiposUsuario();
                       </div>
                     </div>
                   </label>
-
                   <input type="file" id="certif-Input" name="certificado" onchange="verificaExtensao(this)" style="display: none" />
                 </div>
               </div>
-
               <div class="parte3">
                 <h2>Privacidade e Termos</h2>
                 <div class="caixatxt">
@@ -239,7 +233,6 @@ $tiposUsuario = $DAO->verTiposUsuario();
             </form>
           </div>
         </div>
-
         <div class="cadastro-nav">
           <div class="NextBackdiv">
             <button class="btnVoltar" onclick="voltar()">VOLTAR</button>

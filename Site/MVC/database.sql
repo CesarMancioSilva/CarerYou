@@ -112,9 +112,24 @@ CREATE TABLE IF NOT EXISTS TB_USUARIO
 ENGINE = InnoDB;
 
 
+CREATE TABLE IF NOT EXISTS TB_USUARIO_PROFISSIONAL
+(
+	ID_USUARIO_PROFISSIONAL INT NOT NULL AUTO_INCREMENT,
+    ID_USUARIO INT,
+    NM_ARQUIVO_CERTIFICADO VARCHAR(100) NOT NULL,
+    PRIMARY KEY(ID_USUARIO_PROFISSIONAL),
+    CONSTRAINT FK_USUARIO_PROFISSIONAL_USUARIO
+		FOREIGN KEY(ID_USUARIO)
+			REFERENCES TB_USUARIO(ID_USUARIO)
+				ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT UNIQUE_ID_USUARIO
+		UNIQUE KEY(ID_USUARIO)
+)
+ENGINE = InnoDB;
+
 DELIMITER //
 
-CREATE PROCEDURE CADASTRAR_USUARIO(nome varchar(50), email varchar(100), senha varchar(260), rg varchar(12), foto_perfil varchar(100), tipo_usuario varchar(30), genero_usuario varchar(30), nome_cidade varchar(50))
+CREATE PROCEDURE CADASTRAR_USUARIO(nome varchar(50), email varchar(100), senha varchar(260), rg varchar(12), foto_perfil varchar(100), tipo_usuario varchar(30), genero_usuario varchar(30), nome_cidade varchar(50), nome_certificado varchar(100))
 BEGIN
 	IF tipo_usuario = "Cliente" OR tipo_usuario = "Admin" THEN
 		INSERT INTO TB_USUARIO VALUES
@@ -122,13 +137,26 @@ BEGIN
 	ELSE
 		INSERT INTO TB_USUARIO VALUES
 		(DEFAULT, nome, email, senha, rg, foto_perfil, (SELECT ID_TIPO_USUARIO FROM TB_TIPO_USUARIO WHERE DS_TIPO_USUARIO = tipo_usuario), 3, (SELECT ID_GENERO_USUARIO FROM TB_GENERO_USUARIO WHERE DS_GENERO_USUARIO = genero_usuario), (SELECT ID_CIDADE FROM TB_CIDADE WHERE NM_CIDADE = nome_cidade));
+        INSERT INTO TB_USUARIO_PROFISSIONAL VALUES
+        (DEFAULT, (SELECT ID_USUARIO FROM TB_USUARIO WHERE DS_EMAIL = email), nome_certificado);
     END IF;
 END //
 DELIMITER ;
 
+DELIMITER //
+
+CREATE PROCEDURE LOGIN_USUARIO (email varchar(100), senha varchar(260))
+BEGIN
+	SELECT US.ID_USUARIO, TP.DS_TIPO_USUARIO FROM TB_USUARIO AS US INNER JOIN TB_TIPO_USUARIO AS TP ON (US.ID_TIPO_USUARIO = TP.ID_TIPO_USUARIO) WHERE US.DS_EMAIL = email AND DS_SENHA = senha;
+END //
+DELIMITER ;
+
+DROP procedure LOGIN_USUARIO;
 DROP PROCEDURE CADASTRAR_USUARIO;
 
 select * from tb_usuario;
 
+select * from tb_usuario_profissional;
 
-
+delete from tb_usuario where id_usuario > 0;
+delete from tb_usuario_profissional where id_usuario_profissional  > 0;
