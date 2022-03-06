@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/menu-adm.css">
+    <link rel="stylesheet" href="assets/css/adm.css">
+    <title>adm</title>
+</head>
+<body>
+    <nav class="menu-side">
+        <img class="logo" src="assets/img/logobranco.png">
+        <ul class="lateral-navegação">
+            <li class="Chat">Chat</li>
+            <li class="Cuidadores" style="margin-bottom:0;">Cuidadores</li>
+            <li class="sub-menu" onclick="analiseF()"id="analise">Analise</li>
+            <li class="sub-menu" onclick="listaF()" id="listaCuid">Lista de cuidadores</li>
+
+            <li class="Locais">Locais</li>
+            <li class="Notificações">Notificações</li>
+            <li class="Perfil">Perfil</li>
+        </ul>
+        <div class="bottom-profile">
+            <img alt="">
+            <ul>
+                <li>César Mancio Silva</li>
+                <li>Administrador Carer You</li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="Content-analise" >
+        <div class="analise-content">
+            
+                <h2>Lista de cadastros em analise</h2>
+                <div class="linha-title"></div>
+                <input placeholder="Pesquise o pedido aqui..." type="search">
+
+                <div class="card-analise">
+                    <div class="header-card">
+                        <div class="imgCard">
+                           <img> 
+                            <ul>
+                                <li class="nome-cuidador">Nome do cuidador</li>
+                                <li class="região-cuidador">Região</li>
+                            </ul> 
+                        </div>
+                        <div class="data-envio">"dia" de "mes" de "ano"</div>
+                    </div>
+                    <button onclick="viewContent()">Analisar</button>
+                </div>
+                <div class="card-analise">
+                    <div class="header-card">
+                        <div class="imgCard">
+                           <img> 
+                            <ul>
+                                <li class="nome-cuidador">Nome do cuidador</li>
+                                <li class="região-cuidador">Região</li>
+                            </ul> 
+                        </div>
+                        <div class="data-envio">"dia" de "mes" de "ano"</div>
+                    </div>
+                    <button onclick="viewContent()">Analisar</button>
+                </div>
+                <div class="card-analise">
+                    <div class="header-card">
+                        <div class="imgCard">
+                           <img> 
+                            <ul>
+                                <li class="nome-cuidador">Nome do cuidador</li>
+                                <li class="região-cuidador">Região</li>
+                            </ul> 
+                        </div>
+                        <div class="data-envio">"dia" de "mes" de "ano"</div>
+                    </div>
+                    <button onclick="viewContent()">Analisar</button>
+                </div>
+                <div class="card-analise">
+                    <div class="header-card">
+                        <div class="imgCard">
+                           <img> 
+                            <ul>
+                                <li class="nome-cuidador">Nome do cuidador</li>
+                                <li class="região-cuidador">Região</li>
+                            </ul> 
+                        </div>
+                        <div class="data-envio">"dia" de "mes" de "ano"</div>
+                    </div>
+                    <button onclick="viewContent()">Analisar</button>
+                </div>
+                
+        
+        </div>
+
+
+
+        <div class="cuidador-content">
+            <img onclick="closeContent()"class="backArrow"src="assets/img/arrow-back-regular-84.png">
+            <div class="cuidador-header">
+                <img>
+                <ul>
+                    <li>Data de envio:</li>
+                    <li class="data-envio">"dia" de "mes" de "ano"</li>
+                </ul>
+            </div>
+            <div class="info1">
+                <div class="esquerda-info">
+                    <ul class="nome-info">
+                        <li>Nome de usuário</li>
+                        <li class="selected-info">Nome de usuario</li>
+                    </ul>
+                    <ul class="região-info">
+                        <li> Região</li>
+                        <li class="selected-info">Santos - SP</li>
+                    </ul>
+                </div>
+               <div class="esquerda-info">
+                    <ul class="email-info">
+                        <li>Email de cadastro</li>
+                        <li class="selected-info">cesarmanciosilva@gmail.com</li>
+                    </ul>
+                    <ul class="Genero-info">
+                        <li>Genero</li>
+                        <li class="selected-info">Feminino</li>
+                    </ul>
+               </div>
+                
+            </div>
+            <hr>
+            <div class="info2">
+                
+                    <ul class="RG-info">
+                        <li>RG (Registro Geral)</li>
+                        <li class="selected-info">44.444.4444.44-4</li>
+                    </ul>
+                    <ul class="PDF-info">
+                        <li>PDF de Certificação</li>
+                        <li class="selected-info">doc.PDF</li>
+                    </ul>
+            </div>
+
+            <div class="Button-div">
+                <button class="Permitir">Permitir</button>
+                <button class="Recusar">Recusar</button>
+            </div>
+            
+            
+        </div>
+    </div>
+
+
+    <script src="scripts/menu-adm.js"></script>
+    <script src="scripts/adm.js"></script>
+</body>
+</html>
