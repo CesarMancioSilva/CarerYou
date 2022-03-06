@@ -1,0 +1,126 @@
+.footer.on{
+    display: none;
+}
+.container{
+    max-width: 1170px;
+    background-color:rgb(255, 255, 255);
+    margin:auto;
+}
+.row{
+    display:flex;
+    flex-wrap: wrap;
+}
+.footer{
+    box-shadow: 5px 10px 15px black;  
+background-color: white;
+padding:70px 0;
+}
+.footer ul{
+    list-style: none;
+    text-decoration: none;
+    
+    }
+    .footer ul li{
+        
+        text-decoration: none;
+        
+        }
+.footer-col{
+    width:25%;
+    padding:0 15px;
+}
+.footer-col h4{
+    font-size:18px;
+    text-transform: capitalize;
+    margin-bottom:35px;
+    
+    position:relative;
+}
+.footer-col h4::before{
+    content: '';
+    position:absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #00ffc8;
+    height:2px;
+    box-sizing: border-box;
+    width:50px;
+}
+.footer-col ul li:not(:last-child){
+    margin-bottom:10px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform:capitalize;
+    font-weight: 300;
+    display:block;
+    transition: all 0.3s sease;
+    color:rgb(87, 87, 87);
+    text-decoration: none;
+}
+.footer-col ul li a:hover{
+    color:#3DC9C4;
+    padding-left:10px;
+}
+.footer-col .social-links a{
+    display:inline-block;
+    height:40px;
+    width:40px;
+    background-color: #3DC9C4;
+    margin:0 10px 10px 0;
+    text-align:center;
+    line-height:40px;
+    border-radius: 50px;
+    color:white;
+    transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+    color:white;
+    background-color: #00ffc8;
+}
+@media(max-width:880px){
+    .one, .two, .three{
+        background-color:#006064;
+        height:5px;
+        width:100%;
+        margin:4px auto;
+        transition-duration: 0.5s ;
+    }
+}
+@media(max-width:768px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+    .one, .two, .three{
+        background-color:#006064;
+        height:5px;
+        width:100%;
+        margin:4px auto;
+    }
+    .menu-toggle{
+        width:35px;
+        height:25px;
+    }
+
+}
+@media(max-width:567px){
+    .footer-col{
+        width: 100%;
+    }
+    .menu-section.on{
+        position:absolute;
+        top:0;
+        left:0;
+        background-color: #ffffff;
+
+        width:100vw;
+        height: 100vh;
+
+        z-index:10;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
