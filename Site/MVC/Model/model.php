@@ -157,7 +157,7 @@ class Profissional extends Usuario
 
 class UsuarioDAO
 {
-    private PDO $connection;
+    protected PDO $connection;
     public function __construct()
     {
         $this->connection = Conexao::getConnection();
@@ -168,6 +168,8 @@ class UsuarioDAO
         $sql = $this->connection->query("SELECT * FROM TB_TIPO_USUARIO WHERE DS_TIPO_USUARIO !='Admin'");
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
 
     public function verGeneros(): array
     {
@@ -217,7 +219,7 @@ class UsuarioDAO
                     if ($img->getExtensao() === true) {
                         $img->uploadArquivo();
                         $certificado->uploadArquivo();
-                        $stmt->bindValue(":FT", $certificado->getNomeArquivo());
+                        $stmt->bindValue(":FT", $img->getNomeArquivo());
                         $stmt->bindValue(":ARQ", $certificado->getNomeArquivo());
                         $stmt->execute();
                         return true;
@@ -235,15 +237,41 @@ class UsuarioDAO
         }
     }
 
-    public function loginUsuario(string $email, string $senha): bool | array
+    public function loginUsuario(string $email, string $senha): bool
     {
         $sql = $this->connection->query("CALL LOGIN_USUARIO('" . $email . "', '" . sha1($senha) . "')");
         $res = $sql->fetch(PDO::FETCH_ASSOC);
-        if (isset($res['ID_USUARIO'])) {
-            return $res;
+        if ($res !== false) {
+            session_start();
+            $_SESSION['ID'] = $res['ID_USUARIO'];
+            $_SESSION['TIPO'] = $res['DS_TIPO_USUARIO'];
+            return true;
         } else {
             return false;
         }
+    }
+}
+
+class AdminDAO extends UsuarioDAO
+{
+    public function UsuariosAnalise(): array | bool
+    {
+        $sql = $this->connection->query("SELECT * FROM VW_PROFISSIONAIS WHERE STATUS = 'Em análise'");
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function getDetalhesProfissional(int $id): array | bool
+    {
+        $sql = $this->connection->query("SELECT * FROM VW_PROFISSIONAIS WHERE ID_PROFISSIONAL =" . $id);
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function permitirProfissional(int $id): void
+    {
+        $sql = $this->connection->query("CALL APROVAR_PROFISSIONAL(" . $id . ")");
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
     }
 }
 

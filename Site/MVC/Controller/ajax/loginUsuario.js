@@ -10,10 +10,9 @@ form.onsubmit = e => {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
                 var response = xhr.response;
-                if(response==="Sucesso"){
-                    responseArea.innerHTML = response;
-                    location.href="#"
-                } else if(response!==""){
+                if(response == "Sucesso"){
+                    location.href = "../";
+                } else {
                     responseArea.style.display = "block";
                     responseArea.innerHTML = response;
                 }

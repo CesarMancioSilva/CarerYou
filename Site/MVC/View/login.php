@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,18 +19,24 @@
             <label for="hamburger">
                 <div onclick="formf()" class="hamburger"></div>
             </label>
-            <a href="home.php"><img id="logo-monitor" src="assets/img/logo.png"></a>
+            <a href="../"><img id="logo-monitor" src="assets/img/logo.png"></a>
             <ul>
                 <li href="#"><a href="#">ASILOS/CASAS DE REPOUSO</a></li>
                 <li><a href="#">CUIDADORES</a></li>
-                <li><a href="home.html">HOME</a></li>
+                <li><a href="../">HOME</a></li>
                 <li class="nav-menu"><a href="#">SOBRE NÓS</a></li>
                 <li class="nav-menu"><a href="#">CONTATE-NOS</a></li>
                 <li class="nav-menu"><a href="#">FAQ</a></li>
             </ul>
             <a href="login.php"><img id="icon-entrar" src="assets/img/login.png"></a>
-            <a class="buttons-lc" href="login.php"><button id="nav-entrar">LOGIN</button></a>
-            <a class="buttons-lc" href="cadastro.php"><button id="nav-cadastro">CADASTRO</button></a>
+            <?php
+            if (isset($_SESSION['ID'])) {
+                echo '<a href="../Controller/php/Deslogar.php" class="buttons-lc"><button id="nav-entrar" style="background-color: red; color:white; border: none;">SAIR</button></a>';
+            } else {
+                echo '<a class="buttons-lc" href="./login.php"><button id="nav-entrar">LOGIN</button></a>
+              <a class="buttons-lc" href="./cadastro.php"><button id="nav-cadastro">CADASTRO</button></a>';
+            }
+            ?>
         </nav>
     </header>
     <div id="main">
