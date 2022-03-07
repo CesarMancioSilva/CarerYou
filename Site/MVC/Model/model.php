@@ -3,9 +3,9 @@ class Conexao
 {
     const port = "3306";
     const host = "localhost";
-    const dbname = "db_carer_you";
-    const user = "carer_you";
-    const password = "22042003";
+    const dbname = "bd_carer_you";
+    const user = "TCC_CARER_YOU";
+    const password = "TCC-3DS2-2022";
 
     public static function getConnection(): PDO | null
     {
@@ -192,7 +192,7 @@ class UsuarioDAO
         //Caso não exista algum usuario com o mesmo email
         if ($res === false) {
             //Cadastro para admin e cliente
-            $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID, :ARQ)");
+            $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :GEN, :TP, :CID, :ARQ)");
             $stmt->bindValue(":NM", $u->getNome());
             $stmt->bindValue(":EM", $u->getEmail());
             $stmt->bindValue(":SN", $u->getSha1Senha());
