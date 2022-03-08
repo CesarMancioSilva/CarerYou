@@ -3,11 +3,11 @@ class Conexao
 {
     const port = "3306";
     const host = "localhost";
-    const dbname = "db_carer_you";
-    const user = "carer_you";
-    const password = "22042003";
+    const dbname = "bd_carer_you";
+    const user = "TCC_CARER_YOU";
+    const password = "TCC-3DS2-2022";
 
-    public static function getConnection()
+    public static function getConnection(): PDO
     {
         try {
             $connection = new PDO("mysql:host=" . self::host . ":" . self::port . ";dbname=" . self::dbname, self::user, self::password);
@@ -30,7 +30,7 @@ abstract class Arquivo
 
     public abstract function uploadArquivo();
 
-    public function getNomeArquivo()
+    public function getNomeArquivo(): string
     {
         return time() . $this->dados['name'];
     }
@@ -83,7 +83,7 @@ class Imagem extends Arquivo
 
     public function uploadArquivo()
     {
-        if ($this->getExtensao() === true) {
+        if ($this->getExtensao() == true) {
             if (move_uploaded_file($this->dados['tmp_name'], "../../View/assets/img/profile pic/" . time() . $this->dados['name'])) {
                 return true;
             } else {
@@ -98,23 +98,23 @@ class Imagem extends Arquivo
 
 class Usuario
 {
-    protected $nome; 
-    protected $email; 
-    protected $senha; 
-    protected $rg; 
-    protected $genero; 
-    protected $cidade; 
-    protected $tipoUsuario; 
-    protected Imagem $foto;
-    public function __construct($Nome, $Email, $Senha, $RG, $Genero, $Cidade, $TipoUsuario ,Imagem $Foto)
+    protected $nome;
+    protected $email;
+    protected $senha;
+    protected $rg;
+    protected $genero;
+    protected $cidade;
+    protected $tipoUsuario;
+    protected $foto;
+    public function __construct($Nome, $Email, $Senha, $RG, $Genero, $Cidade, $TipoUsuario, Imagem $Foto)
     {
         $this->nome = $Nome;
         $this->email = $Email;
         $this->senha = $Senha;
         $this->rg = $RG;
-        $this->tipoUsuario = $TipoUsuario;
         $this->genero = $Genero;
         $this->cidade = $Cidade;
+        $this->tipoUsuario = $TipoUsuario;
         $this->foto = $Foto;
     }
 
@@ -160,7 +160,7 @@ class Usuario
 
 class Profissional extends Usuario
 {
-    private PDF $certificado;
+    private $certificado;
 
     public function setCertificado(PDF $arq)
     {
@@ -175,7 +175,7 @@ class Profissional extends Usuario
 
 class UsuarioDAO
 {
-    private PDO $connection;
+    protected $connection;
     public function __construct()
     {
         $this->connection = Conexao::getConnection();
@@ -187,10 +187,28 @@ class UsuarioDAO
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function ListaProfissionais()
+    {
+        $sql = $this->connection->query("SELECT * FROM VW_PROFISSIONAIS");
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
     public function verGeneros()
     {
         $sql = $this->connection->query("SELECT * FROM TB_GENERO_USUARIO");
         return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function InfoPerfil()
+    {
+    }
+
+    public function ListaLocais()
+    {
+        $sql = $this->connection->query("SELECT * FROM TB_LOCAL");
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
     }
 
     public function verCidades()
@@ -208,7 +226,7 @@ class UsuarioDAO
         //Caso não exista algum usuario com o mesmo email
         if ($res === false) {
             //Cadastro para admin e cliente
-            $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :TP, :GEN, :CID, :ARQ)");
+            $stmt = $this->connection->prepare("CALL CADASTRAR_USUARIO(:NM, :EM, :SN, :RG, :FT, :GEN, :TP, :CID, :ARQ)");
             $stmt->bindValue(":NM", $u->getNome());
             $stmt->bindValue(":EM", $u->getEmail());
             $stmt->bindValue(":SN", $u->getSha1Senha());
@@ -235,7 +253,7 @@ class UsuarioDAO
                     if ($img->getExtensao() === true) {
                         $img->uploadArquivo();
                         $certificado->uploadArquivo();
-                        $stmt->bindValue(":FT", $certificado->getNomeArquivo());
+                        $stmt->bindValue(":FT", $img->getNomeArquivo());
                         $stmt->bindValue(":ARQ", $certificado->getNomeArquivo());
                         $stmt->execute();
                         return true;
@@ -253,15 +271,41 @@ class UsuarioDAO
         }
     }
 
-    public function loginUsuario(string $email, string $senha)
+    public function loginUsuario($email, $senha)
     {
         $sql = $this->connection->query("CALL LOGIN_USUARIO('" . $email . "', '" . sha1($senha) . "')");
         $res = $sql->fetch(PDO::FETCH_ASSOC);
-        if (isset($res['ID_USUARIO'])) {
-            return $res;
+        if ($res !== false) {
+            session_start();
+            $_SESSION['ID'] = $res['ID_USUARIO'];
+            $_SESSION['TIPO'] = $res['DS_TIPO_USUARIO'];
+            return true;
         } else {
             return false;
         }
+    }
+}
+
+class AdminDAO extends UsuarioDAO
+{
+    public function UsuariosAnalise()
+    {
+        $sql = $this->connection->query("SELECT * FROM VW_PROFISSIONAIS WHERE STATUS = 'Em análise'");
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function getDetalhesProfissional(int $id)
+    {
+        $sql = $this->connection->query("SELECT * FROM VW_PROFISSIONAIS WHERE ID_PROFISSIONAL =" . $id);
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function permitirProfissional(int $id): void
+    {
+        $sql = $this->connection->query("CALL APROVAR_PROFISSIONAL(" . $id . ")");
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
     }
 }
 

@@ -5,7 +5,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
     $senha = (string)addslashes($_POST['senha']);
     if (!empty($email) && !empty($senha)) {
         $res = $DAO->loginUsuario($email, $senha);
-        if ($res !== false) {
+        if ($res == true) {
             echo "Sucesso";
         } else {
             echo "Login Invalido";

@@ -17,6 +17,8 @@ if (isset($_POST['tipoUsuario'])) {
                 if (strlen($senha) > 7) {
                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         if (preg_match("/^[a-zA-Z-' ]*$/", $nome)) {
+                            $imgExplod = explode('.', $fotoPerfil['name']);
+                            $imgExt = end($imgExplod);
                             $foto = new Imagem($fotoPerfil);
                             if ($tipoUsuario === "Cliente") {
                                 $u = new Usuario($nome, $email, $senha, $rg, $genero, $cidade, $tipoUsuario, $foto);

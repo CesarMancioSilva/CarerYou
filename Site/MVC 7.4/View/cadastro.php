@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../Model/model.php");
 $generos = $DAO->verGeneros();
 $cidades = $DAO->verCidades();
@@ -13,7 +14,7 @@ $tiposUsuario = $DAO->verTiposUsuario();
   <link rel="stylesheet" href="assets/css/cadastro.css" />
   <link rel="stylesheet" href="assets/css/Nav-scadastro.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
-  <title>Cadastro</title>
+  <title>Carer You</title>
 </head>
 
 <body>
@@ -23,17 +24,31 @@ $tiposUsuario = $DAO->verTiposUsuario();
       <label for="hamburger">
         <div class="hamburger"></div>
       </label>
-      <a href="home.php"><img id="logo-monitor" src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/logo.png?v=1645195527997" /></a>
+      <a href="../"><img id="logo-monitor" src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/logo.png?v=1645195527997" /></a>
       <ul>
-        <li href="#"><a href="#">ASILOS/CASAS DE REPOUSO</a></li>
-        <li><a href="#">CUIDADORES</a></li>
+        <li href="#"><a href="./locais.php">ASILOS/CASAS DE REPOUSO</a></li>
+        <li><a href="./cuidadores.php">CUIDADORES</a></li>
+        <li><a href="../">HOME</a></li>
+        <?php
+        if (isset($_SESSION['TIPO'])) {
+          if ($_SESSION['TIPO'] == "Admin") {
+            echo '<li><a href="./adm.php">ADM</a></li>';
+          }
+        }
+        ?>
         <li class="nav-menu"><a href="#">SOBRE NÓS</a></li>
         <li class="nav-menu"><a href="#">CONTATE-NOS</a></li>
         <li class="nav-menu"><a href="#">FAQ</a></li>
       </ul>
       <a href="login.html"><img id="icon-entrar" src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/login.png?v=1645195535033" /></a>
-      <a class="buttons-lc" href="login.php"><button id="nav-entrar">LOGIN</button></a>
-      <a class="buttons-lc" href="cadastro.php"><button id="nav-cadastro">CADASTRO</button></a>
+      <?php
+      if (isset($_SESSION['ID'])) {
+        echo '<a href="../Controller/php/Deslogar.php" class="buttons-lc"><button id="nav-entrar" style="background-color: red; color:white; border: none;">SAIR</button></a>';
+      } else {
+        echo '<a class="buttons-lc" href="./login.php"><button id="nav-entrar">LOGIN</button></a>
+              <a class="buttons-lc" href="./cadastro.php"><button id="nav-cadastro" style="background-color: white; color: #3dc9c4; border: #3dc9c4 solid 2px;">CADASTRO</button></a>';
+      }
+      ?>
     </nav>
   </header>
   <div class="content">
@@ -51,7 +66,7 @@ $tiposUsuario = $DAO->verTiposUsuario();
           <div class="titulo">
             <h1>CRIE SUA CONTA !</h1>
             <div class="subtitulo">
-              Ja possui uma conta? <a href="#">Conecte-se</a>
+              Ja possui uma conta? <a href="./login.php">Conecte-se</a>
             </div>
           </div>
           <div class="input-div">

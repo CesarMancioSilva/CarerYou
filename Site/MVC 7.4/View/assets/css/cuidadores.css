@@ -1,0 +1,147 @@
+.title-main {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+.title-main .left {
+  width: 15%;
+  height: 20px;
+  background-color: #3dc9c4;
+}
+.title-main .title {
+  width: 30%;
+  min-width: 380px;
+  height: 100px;
+  position: relative;
+}
+.title-main .title h3 {
+  position: absolute;
+  font-size: 130%;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+.title-main .right {
+  width: 55%;
+  height: 20px;
+  background-color: #3dc9c4;
+}
+.all-content {
+  width: 100%;
+
+  display: flex;
+  padding: 30px 15%;
+  justify-content: space-between;
+}
+.filtro-div {
+  width: 25%;
+
+  height: 400px;
+  min-width: 200px;
+  padding-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+}
+.filtro-div input[type="search"] {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0px 10px rgb(155, 155, 155);
+}
+.filtro-div .filtro-card {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0px 15px rgb(209, 209, 209);
+  border-radius: 15px;
+  padding: 20px 23px 30px 23px;
+}
+.paginação-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+}
+.paginação-div img {
+  cursor: pointer;
+}
+.paginação-div ul {
+  list-style: none;
+  display: flex;
+}
+.paginação-div ul a {
+  list-style: none;
+  text-decoration: none;
+  padding: 0 5px;
+}
+.conjunto-input {
+  margin-top: 6px;
+}
+hr {
+  margin: 15px 0px;
+}
+.filtro-card .input-div {
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
+}
+.input-div label {
+  margin-left: 10px;
+}
+.cards-div {
+  width: 70%;
+  height: auto;
+  margin-left: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  padding: 1% 2%;
+}
+.card-profissional {
+  border-radius: 15px;
+  width: 180px;
+  height: 250px;
+  margin: 2% 2%;
+  padding: 1% 3%;
+  position: relative;
+  border: 1px solid rgb(179, 179, 179);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 0 0px 15px rgb(202, 202, 202);
+}
+.card-profissional img {
+  border-radius: 50%;
+  background-color: rgb(212, 212, 212);
+  border: 2px solid white;
+  width: 80px;
+  height: 80px;
+  margin-left: 30px;
+  margin-top: 10px;
+  z-index: 100;
+}
+.card-profissional button {
+  background-color: #3dc9c4;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: 80px;
+  height: 25px;
+  margin-left: 32px;
+  cursor: pointer;
+}
+.card-profissional .background-card {
+  width: 100%;
+  position: absolute;
+  height: 73px;
+  left: 0;
+  top: 0;
+  background-color: rgb(218, 218, 218);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
