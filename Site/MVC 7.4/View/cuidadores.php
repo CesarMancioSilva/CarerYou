@@ -37,7 +37,7 @@ $res = $DAO->ListaProfissionais();
                 <li class="nav-menu"><a href="#">CONTATE-NOS</a></li>
                 <li class="nav-menu"><a href="#">FAQ</a></li>
             </ul>
-            <a href="login.html"><img id="icon-entrar" src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/login.png?v=1645195535033" /></a>
+            <img id="icon-entrar" src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/login.png?v=1645195535033" />
             <?php
             if (isset($_SESSION['ID'])) {
                 echo '<a href="../Controller/php/Deslogar.php" class="buttons-lc"><button id="nav-entrar" style="background-color: red; color:white; border: none;">SAIR</button></a>';
@@ -48,13 +48,14 @@ $res = $DAO->ListaProfissionais();
             ?>
         </nav>
     </header>
-    <!-- <div class="title-main">
+    <div class="espaçamento">.</div>
+    <div class="title-main">
         <div class="left"></div>
         <div class="title">
             <h3> BUSQUE CUIDADORES COM FACILIDADE</h3>
         </div>
         <div class="right"></div>
-    </div> -->
+    </div>
 
     <div class="all-content">
         <div class="filtro-div">

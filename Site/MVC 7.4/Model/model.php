@@ -197,7 +197,11 @@ class UsuarioDAO
     public function verGeneros()
     {
         $sql = $this->connection->query("SELECT * FROM TB_GENERO_USUARIO");
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        if(!$sql){
+            return "Não existem cuidadores...";
+        } else {
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 
     public function InfoPerfil()
