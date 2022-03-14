@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/perfil-cuidador.css">
+    <link rel="stylesheet" href="assets/css/menu-adm.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="menu-side">
+        <a href="../"><img class="logo" src="assets/img/logobranco.png" /></a>
+        <ul class="lateral-navegação">
+          <li class="Chat">Chat</li>
+          <li class="Cuidadores" style="margin-bottom: 0">Cuidadores</li>
+          <li class="sub-menu" onclick="analiseF()" id="analise">Analise</li>
+          <li class="sub-menu" onclick="listaF()" id="listaCuid">
+            Lista de cuidadores
+          </li>
+    
+          <li class="Locais">Locais</li>
+          <li class="Notificações">Notificações</li>
+          <li class="Perfil">Perfil</li>
+        </ul>
+        <div class="bottom-profile">
+          <img alt="" />
+          <ul>
+            <li>César Mancio Silva</li>
+            <li>Administrador Carer You</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="content">
+          <div class="header-cuid">
+              <div class="left-nav">
+                  <div class="header-left">
+                      <img>
+                        <ul>
+                            <li class="Nome-header" style="display: flex;">César Mâncio Silva (<div id="genero-header">Masculino</div>)</li>
+                            <li>Técnico Enfermagem, Cuidador</li>
+                            <li>Disponivel</li>
+                        </ul>
+                  </div>
+                  <ul class="button-left">
+                      <li><button>Solicitar Serviço</button></li>
+                      <li><button>Ver Certificação</button></li>
+                  </ul>
+                  
+                  
+              </div>
+              <div class="right-nav">
+                  <ul>
+                      <li>email@email.com</li>
+                      <li>Santos - SP</li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="feedback-div">
+              <div class="aval-div">
+                  <div class="card-aval">
+                      <h2>Avaliações</h2>
+                      <hr>
+                      <div class="star-div">
+                          <img src="assets/img/star.png">
+                          <div class="media-div">
+                              <div class="media">4.2</div>
+                              <br>
+                              <div class="qnt-media">+99 avaliações</div>
+                          </div>
+                      </div>
+                      
+                  </div>
+                  
+              </div>
+
+
+              <div class="coment-div">
+                  <h2>Comentarios de clientes</h2>
+                  <hr></hr>
+
+              </div>
+          </div>
+      </div>
+      <script src="scripts/menu-adm.js"></script>
+      <script src="scripts/perfil-cuidador.js"></script>
+</body>
+</html>
