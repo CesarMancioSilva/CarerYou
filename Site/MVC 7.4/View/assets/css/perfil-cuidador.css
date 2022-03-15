@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  font-family: "Roboto", sans-serif !important;
+}
 .content{
     width: 100%;
     height: 100vh;
@@ -29,6 +33,16 @@
 .aval-div{
     width:30%;
     height: 300px;
+    
+}
+.aval-div button{
+    height:30px;
+    padding: 0 10px;
+    cursor: pointer;
+    background: #3DC9C4;
+    border: none;
+    color:white;
+    border-radius: 5px;
 }
 .aval-div hr{
     margin-top: 15px;
@@ -76,7 +90,51 @@
 }
 .coment-div hr{
     margin-top: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+}
+.comment-card{
+    margin-top: 10px;
+    width: 100%;
+    
+    height:auto;
+    position: relative;
+}
+
+.comment-card hr{
+    position: relative;
+    width: 85%;
+
+    left: 50%;
+    transform: translate(-50%,-0%);
+
+}
+.header-comment{
+    width:320px;
+    height:50px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+.header-comment img{
+    width:50px;
+    height:50px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+.comment-txt-div{
+    width:100%;
+    height:auto;
+  
+    padding-top:5px;
+    padding-bottom: 10px;
+    padding-left: 68px;
+}
+.scroll-card-div{
+    width: 100%;
+    height:85%;
+    
+    overflow-y: auto;
+    padding: 0 10px;
 }
 ul{
     list-style: none;
