@@ -6,19 +6,20 @@ const icon = document.getElementById("icon-entrar");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
+var i=0; 
 
 
 // When the user clicks on the button, open the modal
 icon.onclick = function() {
-  modal.style.display = "block";
-}
-
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
+    if(i==0){
+    modal.style.display = "block";
+    i++
+    }
+    else if(i==1){
     modal.style.display = "none";
-  }
+    i--;
+    }
+  
 }
+
+
