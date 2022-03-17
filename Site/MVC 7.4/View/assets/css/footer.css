@@ -11,7 +11,7 @@
     flex-wrap: wrap;
 }
 .footer{
-    box-shadow: 5px 10px 15px black;  
+    box-shadow: 0 1px 15px rgb(228, 228, 228); 
 background-color: white;
 padding:70px 0;
 }
