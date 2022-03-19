@@ -189,30 +189,30 @@ class UsuarioDAO
 
     public function ListaProfissionais()
     {
-        $sql = $this->connection->query("SELECT * FROM VW_PROFISSIONAIS");
-        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
+        $sql = $this->connection->query("SELECT * FROM VW_PROFISSIONAIS WHERE STATUS!='Em análise'");
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function verGeneros()
     {
         $sql = $this->connection->query("SELECT * FROM TB_GENERO_USUARIO");
-        if(!$sql){
+        if (!$sql) {
             return "Não existem cuidadores...";
         } else {
             return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 
-    public function InfoPerfil()
+    public function infoProfissional($id)
     {
+        $sql = $this->connection->query("SELECT * FROM VW_PROFISSIONAIS WHERE ID_PROFISSIONAL = " . $id);
+        return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
     public function ListaLocais()
     {
-        $sql = $this->connection->query("SELECT * FROM TB_LOCAL");
-        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
+        $sql = $this->connection->query("SELECT * FROM VW_LOCAIS");
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function verCidades()

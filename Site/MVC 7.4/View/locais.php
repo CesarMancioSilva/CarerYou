@@ -2,6 +2,7 @@
 session_start();
 require_once("../Model/model.php");
 $res = $DAO->ListaLocais();
+//echo var_dump($res);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -110,13 +111,13 @@ $res = $DAO->ListaLocais();
             } else {
                 foreach ($res as $value) {
                     echo '<div class="card-profissional">
-                        <img src="./assets/img/profile pic/' . $value['FOTO'] . '">
+                        <img src="./assets/img/local-pic/' . $value['FOTO'] . '">
                         <div class="info-profissional">
                             <div class="background-card"></div>
+                             ' . $value['FOTO'] . '
                             <h3>' . $value['NOME'] . '</h3>
                             <div class="status-div">
-                                <span class="titulo-span">Status:</span>
-                                <span class="status" style="color:#00B2FF;">' . $value['STATUS'] . '</span>
+                                <span class="status" style="color:#00B2FF;">' . $value['TIPO_LOCAL'] . '</span>
                             </div>
                             <span style="display: block;">' . $value['CIDADE'] . '</span>
                         </div>

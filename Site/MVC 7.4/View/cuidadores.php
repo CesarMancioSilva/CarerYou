@@ -27,10 +27,8 @@ $res = $DAO->ListaProfissionais();
                 <li><a href="./cuidadores.php">CUIDADORES</a></li>
                 <li><a href="../">HOME</a></li>
                 <?php
-                if (isset($_SESSION['TIPO'])) {
-                    if ($_SESSION['TIPO'] == "Admin") {
-                        echo '<li><a href="./adm.php">ADM</a></li>';
-                    }
+                if (isset($_SESSION['TIPO']) && $_SESSION['TIPO'] == "Admin") {
+                    echo '<li><a href="./adm.php">ADM</a></li>';
                 }
                 ?>
                 <li class="nav-menu"><a href="#">SOBRE NÓS</a></li>
@@ -122,7 +120,7 @@ $res = $DAO->ListaProfissionais();
                             <span style="display: block;">' . $value['CIDADE'] . '</span>
                         </div>
 
-                        <button>Ver mais</button>
+                        <button><a href="./cliente-perfil-cuidador.php?id=' . $value['ID_PROFISSIONAL'] . '" style="color:white;text-decoration:none;">Ver mais</a></button>
                     </div>';
                 }
             }
