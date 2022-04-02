@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/nav-comCadastro.css">
+    <link rel="stylesheet" href="assets/css/cuidador-serviços-analise.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+<body>
+        <header>
+                <nav class="navbar">
+                    <input id="hamburger" type="checkbox" style="display: none" />
+                    <label for="hamburger">
+                        <div class="hamburger"></div>
+                    </label>
+                    <a href="../"><img id="logo-monitor" src="https://cdn.glitch.global/bcdafbd3-05af-45a7-8f68-a12a50835e89/logo.png?v=1645195527997" /></a>
+                    <ul>
+                        <li href="#">ASILOS/CASAS DE REPOUSO</li>
+                        <li href="#">CUIDADORES</li>
+                        <li href="#">CHAT</li>
+                        <li href="#" class="nav-menu">SOBRE NÓS</li>
+                        <li href="#" class="nav-menu">CONTATE-NOS</li>
+                        <li href="#" class="nav-menu">FAQ</li>
+                    </ul>
+                    <img id="icon-entrar"/>
+                </nav>
+            </header>
+            <div class="modal-icon">
+                <div class="modal-icon-header">
+                    <img>
+                    <ul>
+                        <li class="nome-modal">César Mâncio Silva</li>
+                        <li class="email-modal">cesarmanciosilva@gmail.com</li>
+                    </ul>
+                </div>
+                <hr>
+                <ul class="nav-modal">
+                    <li>Perfil</li>
+                    <li>Serviços</li>
+                    <li>Ajuda</li>
+                </ul>
+                <hr>
+                <button>Sair</button>
+            </div>
+
+        <div class="espaçamento"></div>
+        <div class="content">
+            <div class="profile-card">
+                <div class="head-profile">
+                    <img>
+                    <ul>
+                        <li class="nome-profile-card">César Mâncio Silva Silva</li>
+                        <li class="disponibilidade-profile-card">Disponivel</li>
+                    </ul>
+                </div>
+                <hr>
+                <h2>Serviços</h2>
+                <ul class="navegação-profile-card">
+                    <li style="color:#3DC9C4">Pedidos em análise</li>
+                    <li>Em andamento</li>
+                    <li>Histórico</li>
+                </ul>
+            </div>
+
+            <div class="anal-list">
+                <h1>Pedidos em espera</h1>
+                <hr>
+                <div class="card-div">
+                    <div class="card">
+                      <div class="head-card">
+                        <div class="user-info">
+                          <img>
+                          <div class="nome-card-cliente"><b>Alex Aparecido de Lima</b></div>
+                        </div>
+                        <div class="data-envio">22 de agosto</div>
+                      </div><!--head card fim-->
+                      <button onclick="abrirContent()" class="btnVisualizar">Visualizar</button>
+                    </div><!--card div fim-->
+
+                   
+                </div>
+
+            </div>
+
+            <div class="result-user-card">
+              <div class="result-content">
+
+                <div class="title-div">
+                  <h3>Descrição do pedido</h3>
+                  <img onclick="fecharContent()"src="assets/img/Équis.png">
+                </div><!--title-div fim-->
+
+                <div class="nome-result-div">
+                  <p><b>Nome do paciente</b></p>
+                  <div class="nome-result">Alcides Silvano da Silva</div>
+                </div><!--nome result-div fim-->
+              
+
+              <div class="idade-result-div">
+                <p><b>Idade do paciente</b></p>
+                <div class="idade-result">80 anos</div>
+              </div><!--idade result-div fim-->
+
+              <div class="endereço-result-div">
+                <p><b>Endereço do local</b></p>
+                  <div class="endereço-result">Rua. Doutor josé  Rangel de Almeida <div class="numero-result">239</div></div> 
+              </div><!--endereço result fim-->
+
+              <div class="regiao-div">
+                <div class="bairro">Bom retiro</div> <div class="cidade">Santos</div>
+              </div><!--região div fim-->
+
+              
+              <div class="descr-div">
+                <p><b>Descrição de pedido</b></p>
+                <div class="descrição-result">
+                  <p></p>
+                </div>
+              </div>
+
+              <div class="button-div-result">
+                <button class="btnAceitar">Aceitar</button>
+                <button class="btnRecusar">Recusar</button>
+              </div>
+            </div>
+        </div>
+
+
+            
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+              <div class="row">
+                <div class="footer-col">
+                  <img src="assets/img/logo.png" />
+                </div>
+                <div class="footer-col">
+                  <h4>Navegação</h4>
+                  <ul>
+                    <li><a href="#">Asilos</a></li>
+                    <li><a href="#">Casas de repouso</a></li>
+                    <li><a href="#">Cuidadores</a></li>
+                    <li><a href="#">Doações</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Desenvolvedores</h4>
+                  <ul>
+                    <li><a href="View/sobre1.html">Sobre nós</a></li>
+                    <li><a href="View/contato.html">Contate-nos</a></li>
+                    <li><a href="#">Instituição</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Redes sociais</h4>
+                  <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+    <script src="scripts/icone-modal.js"></script>
+    <script src="scripts/cuidador-serviços-analise.js"></script>
+</body>
+</html>

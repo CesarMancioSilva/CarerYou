@@ -1,0 +1,331 @@
+.espaçamento{
+    width: 100%;
+    height: 80px;
+}
+.content{
+    width:100%;
+    min-width: 1100px;
+    height: calc(100vh - 80px);
+    min-height: 700px;
+    max-height: 650px;
+    background: #FBFAFA;
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 13%; 
+}
+.esfumaçado{
+    position: fixed;
+    top:0;
+    bottom:0;
+    z-index: 1200;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.308);
+    display: none;
+}
+.modal-aceitar, .modal-recusar{
+    position: absolute;
+    width: 600px;
+    height: 550px;
+    background: white;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 18px;
+    display: none;
+}
+.profile-card{
+    width:25%;
+    max-width: 350px;
+    background: white;
+    height: 400px;
+    border-radius: 15px;
+    box-shadow: 0 1px 15px rgba(179, 179, 179, 0.568);
+    padding: 20px 30px;
+    min-width: 255px;
+}
+.head-profile{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.head-profile ul{
+  margin-left: 15px;
+}
+.navegação-profile-card {
+    margin-top:15px;
+}
+.navegação-profile-card li{
+    line-height: 40px;
+    font-size: 120%;
+    cursor: pointer;
+}
+.navegação-profile-card li:hover{
+    color:#3dc9c4;
+}
+.head-profile li{
+  line-height: 30px;
+}
+.head-profile .nome-profile-card{
+    font-size: 120%;
+}
+
+.head-profile img{
+    width: 60px;
+    min-width: 60px;
+    height:60px;
+    min-height:60px;
+    border-radius: 50%;
+    border: 1px solid;
+}
+.disponibilidade-profile-card{
+    color:#00B2FF;
+}
+.profile-card hr{
+    margin:25px 0;
+}
+.anal-list{
+    width:40%;
+    min-width: 400px;
+    height: 100%;
+}
+.anal-list hr{
+    margin: 15px 0;
+}
+.card-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    overflow-y: auto;
+    height: 89%;
+    padding:5px 0;
+}
+.card{
+    width: 97%;
+    height:140px;
+    min-height:140px;
+    box-shadow: 0 1px 10px rgba(179, 179, 179, 0.568);
+    border-radius: 15px;
+    background:white;
+    margin-top: 20px;
+    padding: 20px 30px;
+    position: relative;
+}
+.btnVisualizar{
+    position: absolute;
+    padding: 5px 13px;
+    background: #3dc9c4;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 4px;
+    right: 30px;
+    bottom:30px;
+    font-size: 100%;
+}
+.head-card{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.user-info{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.nome-card-cliente{
+    margin: 5px 0 0 15px;
+}
+.data-envio{
+    margin-top:5px;
+}
+.user-info img{
+    width: 40px;
+    min-width:40px;
+    height: 40px;
+    min-height:40px;
+    border-radius: 50%;
+    border:1px solid;
+    
+}
+.result-user-card{
+    width:26%;
+    min-width: 350px;
+    height: 100%;
+    max-height: 700px;
+    min-height: 600px;
+    border-radius: 15px;
+    box-shadow: 0 1px 10px rgba(179, 179, 179, 0.568);
+    background: white;
+    padding:20px 20px;
+    position: relative;
+    
+}
+.result-content{
+    display:none;
+}
+.result-user-card .title-div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    align-items: center;
+}
+.result-user-card .title-div img{
+    width:30px;
+    height: 30px;
+    cursor: pointer; 
+}
+.nome-result-div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 35px;
+}
+.idade-result-div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 25px;
+}
+.idade-result{
+    margin-left: 49px;
+}
+.nome-result{
+    margin-left: 45px;
+}
+.endereço-result-div{
+    margin-top: 40px;
+}
+.endereço-result{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.numero-result{
+    margin-left: 15px;
+}
+.flex-endereço{
+    display: flex;
+    align-items: center;
+}
+.regiao-div{
+    margin-top: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+.horarios-div{
+    display: flex;
+    justify-content: space-between;
+    width:290px;
+    margin-top: 30px;
+}
+.horarios-div li{
+   line-height: 30px;
+}
+.descr-div{
+    margin-top: 35px;
+}
+.descrição-result{
+    margin-top: 10px;
+    width: 100%;
+    height:130px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.button-div-result{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    bottom: 30px;
+}
+.button-div-result .btnAceitar{
+    padding:5px 20px;
+    background: #00B2FF;
+    border: none;
+    border-radius: 5px;
+    font-size: 110%;
+    cursor: pointer;
+    color:white;
+}
+.button-div-result .btnRecusar{
+    padding:5px 20px;
+    background: #ff0000;
+    border: none;
+    border-radius: 5px;
+    font-size: 110%;
+    color: white;
+    cursor: pointer;
+}
+@media(max-width:1250px){
+    .content{
+        width:100%;
+        height: calc(100vh - 80px);
+        background: #FBFAFA;
+        display: flex;
+        justify-content: space-between;
+        padding: 3% 3%; 
+    }
+    .head-profile img{
+        width: 60px;
+        min-width: 60px;
+        height:60px;
+        min-height:60px;
+        border-radius: 50%;
+        border: 1px solid;
+    }
+    .head-profile{
+        width: 100%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .profile-card{
+        width:25%;
+        max-width: 300px;
+        background: white;
+        height: 400px;
+        border-radius: 15px;
+        box-shadow: 0 1px 15px rgba(179, 179, 179, 0.568);
+        padding: 20px 30px;
+        min-width: 255px;
+    }
+    .head-profile .nome-profile-card{
+        font-size: 110%;
+    }
+    .head-profile li{
+        line-height: 25px;
+      }
+}
+@media(max-width:1500px){
+    .content{
+        width:100%;
+        height: calc(100vh - 80px);
+        min-height: 700px;
+        max-height: 650px;
+        background: #FBFAFA;
+        display: flex;
+        justify-content: space-between;
+        padding: 3% 4%; 
+    }
+}
+@media(max-width:1160px){
+    .content{
+        width:100%;
+        height: calc(100vh - 80px);
+        min-height: 700px;
+        max-height: 650px;
+        background: #FBFAFA;
+        display: flex;
+        justify-content: space-between;
+        padding: 3% 1%; 
+    }
+}

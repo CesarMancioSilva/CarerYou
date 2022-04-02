@@ -1,0 +1,263 @@
+.modal-form{
+    position: absolute;
+    width: 800px;
+    height: 700px;
+    background: white;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 18px;
+    display: none;
+}
+
+.modal-form input, select{
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 2px solid #868686;
+}
+.modal-form select{
+    width:200px;
+}
+textarea {
+    resize: none;
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 2px solid #868686;
+    width: 100%;
+    height: 130px;
+}
+#nome-form{
+    width:280px;
+}
+#idade-form{
+    width:130px;
+}
+#endereço-form{
+    width:340px;
+}
+#bairro-form{
+    width:180px;
+}
+#numero-form{
+    width:150px;
+}
+#espaço-form{
+    margin-left: 40px;
+}
+#hora-form{
+    width: 200px;
+}
+.modal-form span{
+    color: red;
+}
+.header-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 13%;
+    border-bottom: 1px solid  #868686;
+    padding: 0 50px;
+}
+.header-form img{
+    width: 30px;
+    height:30px;
+    cursor: pointer;
+}
+.sair-form{
+    width:30px;
+    height:30px;
+    border: 1px solid;
+    cursor: pointer;
+}
+.content-modal{
+    width: 100%;
+    height: 70%;
+    padding:20px 50px;
+    
+}
+.content-modal label{
+    display: block;
+    padding: 8px 0;
+    margin-top: 15px;
+}
+.quebra-input-div{
+    display: flex;
+    width:100%;
+    align-items: center;
+    
+}
+.etapa-um{
+    display: block;
+    
+}
+.info-pac-div{
+    display:flex;
+}
+.etapa-dois{
+    display: none;
+}
+.btnVoltar{
+    display:none;
+}
+.btnEnviar{
+    display: block;
+}
+.footer-form{
+    width: 100%;
+    padding:0 50px;
+    height:17%;
+    
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-form button{
+    padding: 5px 20px;
+    font-size:110%;
+    cursor: pointer;
+    background: #3DC9C4;
+    border: none;
+    border-radius: 5px;
+    color:white;
+}
+.footer-form label{
+    padding: 5px 20px;
+    font-size:110%;
+    cursor: pointer;
+    background: #3DC9C4;
+    border: none;
+    border-radius: 5px;
+    color:white;
+}
+.etapa-um{
+    width: 100%;
+    height:100%;
+    
+}
+
+
+/*formulario para denunciar cuidador*/
+.modal-form-denuncia{
+    position: absolute;
+    width: 600px;
+    height: 550px;
+    background: white;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 18px;
+    display: none;
+}
+.quebra-input-div-denuncia{
+    display: flex;
+    width:100%;
+    align-items: center;
+    
+}
+.header-form-denuncia{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 13%;
+    border-bottom: 1px solid  #868686;
+    padding: 0px 50px;
+}
+.header-form-denuncia h2{
+    font-size:135%;
+}
+.header-form-denuncia img{
+    width: 30px;
+    height:30px;
+    cursor: pointer;
+}
+.content-modal-denuncia{
+    width: 100%;
+    height: 70%;
+    padding:20px 50px;
+    
+}
+.caixa-check{
+    width:20px;
+    height: 20px;
+}
+.caixa-label{
+    margin-left: 15px;
+    font-size: 110%;
+}
+#desc-label{
+    margin-top: 25px;
+    
+}
+.content-modal-denuncia label{
+    display: block;
+    padding: 8px 0;
+    margin-top: 0;
+}
+.modal-form-denuncia span{
+    color: red;
+}
+.btnDenunciar{
+    color: #868686;
+    cursor: pointer;
+}
+
+@media(max-width:830px){
+    .modal-form{
+        width: 95%;
+    }
+    .modal-form-denuncia{
+        width: 95%;
+    }
+    .content-modal{
+        width: 100%;
+        height: 70%;
+        padding:20px 50px;
+        overflow-y: auto;
+    }
+    .quebra-input-div{
+        display: block;
+        width:100%;
+    }
+    #espaço-form{
+        margin-left: 0px;
+    }
+}
+@media(max-width:380px){
+    .modal-form-denuncia h2{
+        font-size: 110%;
+    }
+}
+@media(max-width:450px){
+    
+    #espaço-form{
+        margin: 0;
+        padding:0;
+    }
+    #nome-form{
+        width:250px;
+    }
+    #idade-form{
+        width:250px;
+    }
+    #endereço-form{
+        width:250px;
+        margin: 0;
+    }
+    #bairro-form{
+        width:250px;
+        margin: 0;
+    }
+
+    #numero-form{
+        width:250px;
+    }
+    
+    #hora-form{
+        width: 250px;
+    }
+    .modal-form select{
+        width:250px;
+    }
+    
+}
